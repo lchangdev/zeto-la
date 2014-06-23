@@ -1,18 +1,12 @@
 <%= form_for(zone) do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name, required: true %>
-  <br>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name, required: true %>
-  <br>
   <%= f.label :address %>
   <%= f.text_field :address, required: true %>
   <br>
   <%= f.label :cohort %>
-  <%= f.text_field :cohort, required: true %>
+  <%= f.text_field :cohort %>
   <br>
   <%= f.label :company_name %>
-  <%= f.text_field :company_name, required: true %>
+  <%= f.text_field :company_name %>
   <br>
   <%= f.submit 'submit' %>
 <% end %>

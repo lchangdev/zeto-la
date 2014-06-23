@@ -1,4 +1,8 @@
 class LaunchersController < ApplicationController
+  def index
+    @launchers = Launcher.all
+  end
+
   def new
     @launcher = Launcher.new
   end

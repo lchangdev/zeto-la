@@ -1,0 +1,5 @@
+<% if current_user %>
+<%= link_to "sign out", signout_path, id: "sign_out", class: 'login-link' %>
+<% else %>
+<%= link_to "sign in", "/auth/facebook", id: "sign_in", class: 'login-link' %>
+<% end %>
