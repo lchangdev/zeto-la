@@ -43,3 +43,4 @@ end
 
 gem 'omniauth-facebook'
 gem 'geocoder'
+gem 'mapbox-rails'

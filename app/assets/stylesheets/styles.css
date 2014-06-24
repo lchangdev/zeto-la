@@ -1,16 +1,11 @@
-
 #map {
-  position: relative;
-  top:0;
-  bottom:0;
-  height: 400px;
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
 }
-
-.body-container {
-  background-color: tomato;
-
-}
-
 
 .icon-bar {
   background-color: black;
@@ -20,3 +15,10 @@
   border-bottom: 1px solid black;
 }
 
+.body-container {
+  background-color: tomato;
+}
+
+body {
+  background-color: lightblue;
+}
