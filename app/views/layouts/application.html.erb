@@ -23,18 +23,16 @@
           <a class="navbar-brand" href="/launchers">zeto</a>
         </div>
         <div class="collapse navbar-collapse">
-
-        <% if current_user %>
-          <p class="navbar-text navbar-right"><%= current_user.name %> <%= link_to "sign out", signout_path, id: "sign_out", class: 'login-link' %></p>
-        <% else %>
-          <p class="navbar-text navbar-right"><%= link_to "sign in", "/auth/facebook", id: "sign_in", class: 'login-link' %></p>
-        <% end %>
-
+          <% if current_user %>
+            <p class="navbar-text navbar-right"><%= current_user.name %> <%= link_to "sign out", signout_path, id: "sign_out", class: 'login-link' %></p>
+          <% else %>
+            <p class="navbar-text navbar-right"><%= link_to "sign in", "/auth/facebook", id: "sign_in", class: 'login-link' %></p>
+          <% end %>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
-    <div class="body-container container fill col-md-12">
+    <div class="body-container container fill row">
       <div id="flash-message" class="alert">
         <% if flash.any? %>
           <%= flash[:notice] %>
