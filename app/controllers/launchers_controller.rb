@@ -1,20 +1,37 @@
 class LaunchersController < ApplicationController
   def index
     @launchers = Launcher.all
-  end
-
-  def new
     @launcher = Launcher.new
+    @geojson = Array.new
+
+    @launchers.each do |launcher|
+      @geojson << {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [launcher.longitude, launcher.latitude]
+        },
+        properties: {
+          address: launcher.address,
+          :'marker-color' => '#65C6BB',
+          :'marker-symbol' => 'circle',
+          :'marker-size' => 'medium'
+        }
+      }
+
+    end
+
+    respond_to do |format|
+      format.html # default is html render the index page { render :index }
+      format.json {render json: @geojson} # respond with the created JSON object
+    end
   end
 
   def create
-    @launcher = Launcher.find(launcher_params)
+    @launcher = Launcher.new(launcher_params)
 
     if @launcher.save
       flash[:notice] = "success."
-      redirect_to launchers_path
-    else
-      flash[:notice] = "fail."
       redirect_to launchers_path
     end
   end
@@ -22,6 +39,6 @@ class LaunchersController < ApplicationController
   private
 
   def launcher_params
-    params.require(:launcher).permit(:first_name, :last_name, :address, :company_name, :cohort)
+    params.require(:launcher).permit(:address, :cohort, :company_name)
   end
 end

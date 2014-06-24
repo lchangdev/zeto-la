@@ -1,0 +1,22 @@
+
+#map {
+  position: relative;
+  top:0;
+  bottom:0;
+  height: 400px;
+}
+
+.body-container {
+  background-color: tomato;
+
+}
+
+
+.icon-bar {
+  background-color: black;
+}
+
+.container-fluid {
+  border-bottom: 1px solid black;
+}
+

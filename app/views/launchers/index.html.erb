@@ -1,5 +1,8 @@
-<% if current_user %>
-<%= link_to "sign out", signout_path, id: "sign_out", class: 'login-link' %>
-<% else %>
-<%= link_to "sign in", "/auth/facebook", id: "sign_in", class: 'login-link' %>
-<% end %>
+<div class="row">
+  <div id="map" class="col-md-12">
+  </div>
+</div>
+<div class="row">
+  <%= render partial: "form", locals: {zone: @launcher} %>
+  <%= link_to 'new point', new_launcher_path %>
+</div>

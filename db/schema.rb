@@ -17,10 +17,14 @@ ActiveRecord::Schema.define(version: 20140623215809) do
   enable_extension "plpgsql"
 
   create_table "launchers", force: true do |t|
-    t.string  "address",      null: false
-    t.string  "cohort"
-    t.string  "company_name"
-    t.integer "user_id",      null: false
+    t.string   "address",      null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "cohort"
+    t.string   "company_name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

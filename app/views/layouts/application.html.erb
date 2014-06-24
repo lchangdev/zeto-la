@@ -1,14 +1,108 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Zeto</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <title>zeto</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
-<%= yield %>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet' />
 
-</body>
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+      <div class="navbar navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/launchers">zeto</a>
+        </div>
+        <div class="collapse navbar-collapse">
+
+        <% if current_user %>
+          <p class="navbar-text navbar-right"><%= current_user.name %> <%= link_to "sign out", signout_path, id: "sign_out", class: 'login-link' %></p>
+        <% else %>
+          <p class="navbar-text navbar-right"><%= link_to "sign in", "/auth/facebook", id: "sign_in", class: 'login-link' %></p>
+        <% end %>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="body-container col-md-12">
+      <div id="flash-message" class="alert">
+        <% if flash.any? %>
+          <%= flash[:notice] %>
+        <% end %>
+      </div>
+
+    <%= yield %>
+
+    </div>
+
+<!--     <div class="navbar-fixed-bottom col-md-12">
+      <div class="container footer-container col-md-12">
+        <p>Lawrence Chang Production</p>
+      </div>
+    </div> -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
+    <script>
+      var map = L.mapbox.map('map', 'lchangdev.ij5mliof', { zoomControl: false }).setView([40.72, -74.027], 11);
+
+      $.ajax({
+        dataType: 'text',
+        url: '/launchers.json',
+        success: function(data) {
+          var geojson;
+          geojson = $.parseJSON(data);
+          return map.featureLayer.setGeoJSON(geojson);
+        }
+      });
+
+      map.featureLayer.on('layeradd', function(e) {
+        var marker, popupContent, properties;
+        marker = e.layer;
+        properties = marker.feature.properties;
+        popupContent = '<div class="popup">' + '<h3>' + properties.address + '</h3>' + '<p>' + properties.address + '</p>' + '</div>';
+        return marker.bindPopup(popupContent, {
+          closeButton: false,
+          minWidth: 320
+        });
+      });
+
+      map.scrollWheelZoom.disable();
+
+      new L.Control.Zoom({ position: 'bottomleft' }).addTo(map);
+
+    </script>
+
+  </body>
 </html>
