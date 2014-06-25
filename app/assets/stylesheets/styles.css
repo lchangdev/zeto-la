@@ -1,9 +1,7 @@
-#map {
-  height: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
+/* navbar */
+
+.navbar {
+  background-color: white;
 }
 
 .icon-bar {
@@ -14,10 +12,29 @@
   border-bottom: 1px solid black;
 }
 
-.body-container {
-  background-color: tomato;
+/* map */
+
+#map {
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
 }
 
-body {
+/* launchers#index */
+
+.launch-info {
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   background-color: lightblue;
+  z-index: 1;
+}
+
+.test {
+  background-color: tomato;
 }

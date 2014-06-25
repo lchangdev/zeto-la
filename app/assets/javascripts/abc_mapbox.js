@@ -24,6 +24,6 @@ $( document ).ready(function() {
 
   map.scrollWheelZoom.disable();
 
-  new L.Control.Zoom({ position: 'bottomleft' }).addTo(map);
+  new L.Control.Zoom({ position: 'topleft' }).addTo(map);
 
 });

@@ -27,6 +27,10 @@ class LaunchersController < ApplicationController
     end
   end
 
+  def new
+    @launcher = Launcher.new
+  end
+
   def create
     @launcher = Launcher.new(launcher_params)
 
@@ -34,6 +38,10 @@ class LaunchersController < ApplicationController
       flash[:notice] = "success."
       redirect_to launchers_path
     end
+  end
+
+  def home
+
   end
 
   private

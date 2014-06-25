@@ -1,0 +1,13 @@
+<h1>zeto</h1>
+<h4>connect with past, present and future launchers</h4>
+
+<% if signed_in? %>
+  <% if current_user.launcher_id.nil? %>
+    <%= link_to 'fill in more info', new_launcher_path %>
+  <% else %>
+    <%= link_to 'enter', launchers_path %>
+  <% end %>
+<% else %>
+  <p>Please sign in first</p>
+<% end %>
+
