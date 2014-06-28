@@ -45,3 +45,4 @@ end
 gem 'omniauth-facebook'
 gem 'geocoder'
 gem 'mapbox-rails'
+gem 'rails_12factor', group: :production
