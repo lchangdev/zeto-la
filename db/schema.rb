@@ -11,17 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140623215809) do
+ActiveRecord::Schema.define(version: 20140628182927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "launchers", force: true do |t|
-    t.string   "address",      null: false
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "cohort"
-    t.string   "company_name"
+  create_table "contact_requests", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,10 +28,13 @@ ActiveRecord::Schema.define(version: 20140623215809) do
     t.string   "name",             null: false
     t.string   "image",            null: false
     t.string   "email",            null: false
-    t.string   "location"
     t.string   "oauth_token",      null: false
     t.datetime "oauth_expires_at", null: false
-    t.integer  "launcher_id"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "cohort"
+    t.string   "company_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

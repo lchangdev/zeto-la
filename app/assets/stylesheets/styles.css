@@ -1,7 +1,25 @@
+/* global */
+
+body {
+  background-color: #EEEEEE;
+}
+
+body,
+.header {
+  font-weight: 100;
+  font-family: 'Lato';
+}
+
+.body-container {
+  padding: 30px 15px;
+  margin: none;
+}
+
 /* navbar */
 
 .navbar {
   background-color: white;
+  border: 1px solid #ABB7B7;
 }
 
 .icon-bar {
@@ -9,7 +27,32 @@
 }
 
 .container-fluid {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #F2F1EF;
+}
+
+.navbar-brand {
+  letter-spacing: 5px;
+}
+
+.navbar-brand:hover {
+  background-color: #ABB7B7;
+}
+
+/* homepage */
+
+.jumbotron {
+  text-align: center;
+  background-color: #EEEEEE;
+}
+
+.site-name {
+  font-size: 3em;
+  letter-spacing: 10px;
+}
+
+.enter-button {
+  border: 1px solid black;
+  padding: 8px 15px;
 }
 
 /* map */
@@ -17,10 +60,10 @@
 #map {
   height: 100%;
   min-height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
-  z-index: -1;
+  z-index: 0;
 }
 
 /* launchers#index */
@@ -31,10 +74,49 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  background-color: lightblue;
-  z-index: 1;
+  background-color: #EEEEEE;
+  border: 1px solid #ABB7B7;
+  padding-top: 100px;
+  z-index: 1000;
 }
 
-.test {
-  background-color: tomato;
+.launch-info-header,
+.launch-info-edit,
+.launch-info-sort {
+  text-align: center;
+}
+
+.launch-info-header {
+  padding-bottom: 10px;
+}
+
+.launch-info-options {
+  border-top: 1px solid #ABB7B7;
+  border-bottom: 1px solid #ABB7B7;
+}
+
+.launch-info-edit,
+.launch-info-sort {
+  padding-top: 10px;
+}
+
+.launch-info-edit {
+  border-right: 1px solid #ABB7B7;
+}
+
+.launch-info-users {
+  padding-top: 30px;
+}
+
+.avatar {
+  height: 60px;
+  width: 60px;
+}
+
+.popup {
+  font-weight: 100;
+}
+
+.popup p {
+  line-height: 5px
 }

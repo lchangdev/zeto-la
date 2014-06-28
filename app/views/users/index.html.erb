@@ -1,0 +1,45 @@
+<div class="index-container row">
+
+  <div id="map" class="col-md-12">
+  </div>
+
+  <div class="launch-info col-md-4 col-md-offset-1 row">
+
+    <div class="launch-info-header col-md-12">
+      <span class="site-name">zētō</span>
+    </div>
+
+    <div class="launch-info-options col-md-12">
+      <div class="launch-info-edit col-md-6">
+        <p><%= link_to 'Edit', edit_user_path(@user) %></p>
+      </div>
+      <div class="launch-info-sort col-md-6">
+        <p>sort by</p>
+      </div>
+    </div>
+
+    <div class="launch-info-nearbys col-md-12">
+    <!-- TODO: NEED TO SHOW LAUNCHERS NEARBY -->
+    </div>
+    <div id="flash-message" class="alert col-md-12">
+      <!-- in the way of the zoom -->
+      <% if flash.any? %>
+        <%= flash[:notice] %>
+      <% end %>
+    </div>
+
+    <div class="launch-info-users col-md-12">
+      <table class="table">
+        <% @users.each do |user| %>
+          <tr>
+            <td><img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image"> <%= link_to user.name, user_contact_requests_path(user), method: :post %><a/></td>
+
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+  </div>
+
+<div>
+

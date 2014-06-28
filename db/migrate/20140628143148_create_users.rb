@@ -6,10 +6,14 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name, null: false
       t.string :image, null: false
       t.string :email, null: false
-      t.string :location
       t.string :oauth_token, null: false
       t.datetime :oauth_expires_at, null: false
-      t.integer :launcher_id
+      t.string :address
+      t.float :latitude
+      t.float :longitude
+      t.string :cohort
+      t.string :company_name
+      t.boolean :address_present, default: false
 
       t.timestamps
     end

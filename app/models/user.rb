@@ -7,7 +7,11 @@ class User < ActiveRecord::Base
   validates :oauth_token, presence: true
   validates :oauth_expires_at, presence: true
 
-  belongs_to :launcher
+  has_many :contact_requests
+
+  geocoded_by :address
+
+  after_validation :geocode, if: :address_changed?
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -16,7 +20,6 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.image = auth.info.image
       user.email = auth.info.email
-      user.location = auth.info.location
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!

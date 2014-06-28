@@ -1,0 +1,16 @@
+<div class="homepage-container col-md-12">
+  <div class="jumbotron">
+    <h1 class="header"><span class="site-name">zētō</span></h1>
+    <h3 class="header">connect with past, present and future launchers</h3>
+    <br>
+    <% if signed_in? %>
+      <% if !@user.address.present? %>
+        <%= link_to 'Enter', edit_user_path(@user), class: "enter-button" %>
+      <% else %>
+        <%= link_to 'Enter', users_path, class: "enter-button" %>
+      <% end %>
+    <% else %>
+      <p>Please sign in first.</p>
+    <% end %>
+  </div>
+</div>

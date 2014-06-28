@@ -28,6 +28,7 @@ group :test, :development do
   gem 'pry-rails'
   gem 'spring'
   gem 'dotenv-rails'
+  gem 'mailcatcher'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
