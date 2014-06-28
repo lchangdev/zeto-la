@@ -1,12 +1,27 @@
-<%= form_for(zone) do |f| %>
-  <%= f.label :address %>
-  <%= f.text_field :address, required: true %>
+<%= form_for (zone), html: { class: "form-horizontal" } do |f| %>
+  <div class="form-group">
+    <%= f.label :address, class: "col-md-2 control-label header" %>
+    <div class="col-md-5">
+      <%= f.text_field :address, required: true, class: "form-control" %>
+    </div>
+  </div>
   <br>
-  <%= f.label :cohort %>
-  <%= f.text_field :cohort %>
+  <div class="form-group">
+    <%= f.label :cohort, class: "col-md-2 control-label header" %>
+    <div class="col-md-5">
+      <%= f.text_field :cohort, placeholder: "Summer 2014", class: "form-control" %>
+    </div>
+  </div>
   <br>
-  <%= f.label :company_name %>
-  <%= f.text_field :company_name %>
+  <div class="form-group">
+    <%= f.label :company_name, class: "col-md-2 control-label header" %>
+    <div class="col-md-5">
+      <%= f.text_field :company_name, class: "form-control" %>
+      <p>*If present launcher or not currently employed, please use Launch Academy.</p>
+    </div>
+  </div>
   <br>
-  <%= f.submit 'submit' %>
+  <div class="col-md-5">
+    <%= f.submit 'submit', class: 'btn btn-default' %>
+  </div>
 <% end %>

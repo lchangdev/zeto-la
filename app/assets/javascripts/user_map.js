@@ -19,7 +19,9 @@ $(document).ready(function() {
     popupContent = '<div class="popup">' + '<p>' + properties.name + '<br>' + properties.address + '<br>' + properties.company_name + '</p>' + '</div>';
     return marker.bindPopup(popupContent, {
       closeButton: false,
-      minWidth: 200,
+      minWidth: 100,
+      maxWidth: 200,
+      maxHeight: 200,
     });
   });
 

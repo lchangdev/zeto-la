@@ -15,6 +15,10 @@ body,
   margin: none;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 /* navbar */
 
 .navbar {
@@ -38,7 +42,7 @@ body,
   background-color: #ABB7B7;
 }
 
-/* homepage */
+/* user#home */
 
 .jumbotron {
   text-align: center;
@@ -51,7 +55,7 @@ body,
 }
 
 .enter-button {
-  border: 1px solid black;
+  border: 1px solid #ABB7B7;
   padding: 8px 15px;
 }
 
@@ -66,18 +70,14 @@ body,
   z-index: 0;
 }
 
-/* launchers#index */
+/* user#index */
 
 .launch-info {
   height: 100%;
-  min-height: 100%;
   position: absolute;
-  top: 0;
-  bottom: 0;
   background-color: #EEEEEE;
   border: 1px solid #ABB7B7;
   padding-top: 100px;
-  z-index: 1000;
 }
 
 .launch-info-header,
@@ -93,6 +93,7 @@ body,
 .launch-info-options {
   border-top: 1px solid #ABB7B7;
   border-bottom: 1px solid #ABB7B7;
+  background-color: white;
 }
 
 .launch-info-edit,
@@ -104,8 +105,17 @@ body,
   border-right: 1px solid #ABB7B7;
 }
 
+.launch-info-alert {
+  padding-top: 20px;
+  text-align: center;
+}
+
 .launch-info-users {
   padding-top: 30px;
+}
+
+.user-info {
+  background-color: white;
 }
 
 .avatar {
@@ -118,5 +128,12 @@ body,
 }
 
 .popup p {
-  line-height: 5px
+  line-height: 2px;
+  letter-spacing: 2px;
+}
+
+/* user#edit */
+
+.edit-container {
+
 }
