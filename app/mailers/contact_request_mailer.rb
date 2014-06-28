@@ -10,6 +10,6 @@ class ContactRequestMailer < ActionMailer::Base
   def new_contact_request_receipt(sender, recipient)
     @sender = sender
     @recipient = recipient
-    mail(to: @recipient.email, subject: "Request sent to #{@recipient.name}")
+    mail(to: @sender.email, subject: "Request sent to #{@recipient.name}")
   end
 end
