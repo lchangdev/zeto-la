@@ -1,21 +1,21 @@
-# zētō
+zētō
 
 zētō is a medium for past, present and future Launchers of Launch Academy to connect
 and more importantly stay connected. This web app was created at Launch Academy's
 Ship It! Saturday, a one day hackathon. I wanted to keep the goal of this web app
 simple yet effective.
 
-zeto-la.herokuapp.com/
+http://zeto-la.herokuapp.com/
 
-### Getting Started
+Getting Started
 
-### Current Features
+Current Features
 * Login with Facebook.
 * Location of launchers displayed on map.
 * List of all launchers who are using zētō.
 * Users are able to connect with other launchers via email request.
 
-### Features Being/To Be Implemented
+Features Being/To Be Implemented
 * Rspec with Capybara and FactoryGirl
 * AJAX put request for users editing information.
 * Sort launchers by name, address and cohort.
