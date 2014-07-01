@@ -1,29 +1,39 @@
-/* global */
+/* ----------- global----------- */
 
+html,
 body {
-  background-color: #EEEEEE;
-}
-
-body,
-.header {
+  height: 100%;
+  width: 100%;
   font-weight: 100;
   font-family: 'Lato';
+  color: #65C6BB;
+  background-color: white;
 }
 
 .body-container {
-  padding: 30px 15px;
-  margin: none;
+  padding-right: 30px;
+  height: 100%;
+  overflow: auto;
+}
+
+a {
+  color: #2D2D2D;
 }
 
 a:hover {
-  text-decoration: none;
+  color: #65C6BB;
 }
 
-/* navbar */
+.table {
+  text-align: center;
+  margin: auto;
+}
+
+/* ----------- navbar ----------- */
 
 .navbar {
   background-color: white;
-  border: 1px solid #ABB7B7;
+  border-bottom: 1px solid #65C6BB;
 }
 
 .icon-bar {
@@ -38,51 +48,52 @@ a:hover {
   letter-spacing: 5px;
 }
 
-.navbar-brand:hover {
-  background-color: #ABB7B7;
-}
-
-/* user#home */
+/* ----------- user#home ----------- */
 
 .jumbotron {
   text-align: center;
-  background-color: #EEEEEE;
+  background-color: white;
 }
 
 .site-name {
   font-size: 3em;
   letter-spacing: 10px;
+  font-weight: 100;
 }
 
-.enter-button {
-  border: 1px solid #ABB7B7;
+.tag-line {
+  color: #2D2D2D;
+}
+
+.enter-btn {
+  border: 1px solid #65C6BB;
   padding: 8px 15px;
+  background-color: white;
+  color: black;
 }
 
-/* map */
+.enter-btn:hover {
+  background-color: #1BA39C;
+  color: #65C6BB;
+  border: 1px solid #65C6BB;
+  text-decoration: none;
+}
+
+/* ----------- user#index ----------- */
 
 #map {
-  height: 100%;
-  min-height: 100%;
-  position: fixed;
   top: 0;
   bottom: 0;
+  height: 100%;
   z-index: 0;
 }
 
-/* user#index */
-
-.launch-info {
+.index-container {
   height: 100%;
-  position: absolute;
-  background-color: #EEEEEE;
-  border: 1px solid #ABB7B7;
-  padding-top: 100px;
 }
 
 .launch-info-header,
-.launch-info-edit,
-.launch-info-sort {
+.launch-info-options {
   text-align: center;
 }
 
@@ -91,18 +102,7 @@ a:hover {
 }
 
 .launch-info-options {
-  border-top: 1px solid #ABB7B7;
-  border-bottom: 1px solid #ABB7B7;
   background-color: white;
-}
-
-.launch-info-edit,
-.launch-info-sort {
-  padding-top: 10px;
-}
-
-.launch-info-edit {
-  border-right: 1px solid #ABB7B7;
 }
 
 .launch-info-alert {
@@ -116,11 +116,13 @@ a:hover {
 
 .user-info {
   background-color: white;
+  border: 1px solid #65C6BB;
 }
 
 .avatar {
   height: 60px;
   width: 60px;
+  border: 1px solid #65C6BB;
 }
 
 .popup {
@@ -132,8 +134,40 @@ a:hover {
   letter-spacing: 2px;
 }
 
-/* user#edit */
+/* ----------- user#edit ----------- */
 
 .edit-container {
+  text-align: center;
+  padding-top: 100px;
+}
 
+/* ----------- media queries ----------- */
+
+@media (min-width: 768px) {
+  .launch-info {
+    background-size: 100%;
+    position: static;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 768px) {
+  #map {
+    height: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .launch-info {
+    height: 100%;
+    background-color: white;
+    border: 1px solid #65C6BB;
+    padding-top: 100px;
+    left: 1.1%;
+    position: absolute;
+    display: block;
+    z-index: 1;
+    overflow: auto;
+  }
 }

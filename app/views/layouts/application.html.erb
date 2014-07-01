@@ -3,14 +3,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
-
+    <title>zētō</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
-
     <div class="navbar navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -28,18 +26,12 @@
           <% else %>
             <p class="navbar-text navbar-right"><%= link_to "sign in", "/auth/facebook", id: "sign_in", class: 'login-link' %></p>
           <% end %>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
 
-    <div class="body-container fill">
-
+    <div class="body-container row">
       <%= yield %>
-
     </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
   </body>
 </html>

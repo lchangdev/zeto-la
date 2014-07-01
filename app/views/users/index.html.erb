@@ -1,42 +1,50 @@
 <div class="index-container row">
-
   <div id="map" class="col-md-12">
   </div>
-
-  <div class="launch-info col-md-4">
-
-    <div class="launch-info-header col-md-12">
-      <span class="site-name">zētō</span>
-    </div>
-    <article>
-    <div class="launch-info-options col-md-12">
-      <div class="launch-info-edit col-md-6">
-        <p><%= link_to 'Edit', edit_user_path(@user) %></p>
+  <div class="launch-info-container row">
+    <div class="launch-info col-md-4">
+      <div class="launch-info-header col-md-12">
+        <span class="site-name">zētō</span>
       </div>
-      <div class="launch-info-sort col-md-6">
-        <p>Sort By</p>
+      <div class="launch-info-options col-md-12">
+        <table class="table">
+          <tr>
+            <td><a href="#myModal" role="button" data-toggle="modal" rel="tooltip" data-original-title='Hello'>Edit</a></td>
+            <td>Sort By</td>
+          </tr>
+        </table>
       </div>
-    </div>
 
-    <div class="launch-info-nearbys col-md-12">
-    <!-- TODO: NEED TO SHOW LAUNCHERS NEARBY -->
-    </div>
-    <div id="flash-message" class="launch-info-alert col-md-12">
-      <!-- in the way of the zoom -->
-      <% if flash.any? %>
-        <%= flash[:notice] %>
-      <% end %>
-    </div>
-
-    <div class="launch-info-users col-md-12">
-      <ol class="list-group">
-        <% @users.each do |user| %>
-          <li class="user-info list-group-item"><img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image"> <%= link_to user.name, user_contact_requests_path(user), method: :post %><a/></li>
+      <div class="launch-info-nearbys col-md-12">
+        <!-- new feature: launchers nearby -->
+      </div>
+      <div id="flash-message" class="launch-info-alert col-md-12">
+        <% if flash.any? %>
+          <%= flash[:notice] %>
         <% end %>
-      </ol>
+        <p>Click on name to contact.</p>
+      </div>
+      <div class="launch-info-users col-md-12">
+        <ol class="list-group">
+          <% @users.each do |user| %>
+            <li class="user-info list-group-item"><img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image"> <%= link_to user.name, user_contact_requests_path(user), method: :post %><a/></li>
+          <% end %>
+        </ol>
+      </div>
     </div>
-    </article>
   </div>
 
-<div>
-
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">User Information</h4>
+        </div>
+        <div class="modal-body">
+          <%= render partial: "form", locals: {zone: @user} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.order(:name)
     @user = User.find_by(id: current_user.id)
     @geojson = Array.new
     @users.each do |user|
@@ -16,17 +16,16 @@ class UsersController < ApplicationController
           company_name: user.company_name,
           name: user.name,
           email: user.email,
-          :'marker-color' => '#049372',
+          :'marker-color' => '#65C6BB',
           :'marker-symbol' => 'circle',
           :'marker-size' => 'medium'
         }
       }
-
     end
 
     respond_to do |format|
-      format.html # default is html render the index page { render :index }
-      format.json {render json: @geojson} # respond with the created JSON object
+      format.html
+      format.json {render json: @geojson}
     end
   end
 

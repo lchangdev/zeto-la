@@ -1,28 +1,28 @@
-== README
+# zētō
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+zētō is a medium for past, present and future Launchers of Launch Academy to connect
+and more importantly stay connected. This web app was created at Launch Academy's
+Ship It! Saturday, a one day hackathon. I wanted to keep the goal of this web app
+simple yet effective.
 
-Things you may want to cover:
+zeto-la.herokuapp.com/
 
-* Ruby version
+### Getting Started
 
-* System dependencies
+### Current Features
+* Login with Facebook.
+* Location of launchers displayed on map.
+* List of all launchers who are using zētō.
+* Users are able to connect with other launchers via email request.
 
-* Configuration
+### Features Being/To Be Implemented
+* Rspec with Capybara and FactoryGirl
+* AJAX put request for users editing information.
+* Sort launchers by name, address and cohort.
+* Forum for general discussion.
+* Email request limitations.
+* Media queries for medium sized screens.
+* Nearby Launchers
+* User disclaimers
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Built using Ruby, HTML, CSS, JavaScript, jQuery, AJAX with Rails
