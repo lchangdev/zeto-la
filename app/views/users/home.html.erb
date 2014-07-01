@@ -6,6 +6,19 @@
     <% if signed_in? %>
       <% if !@user.address.present? %>
         <button class="btn btn-primary enter-btn" data-toggle="modal" data-target="#myModal">Enter</button>
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title" id="myModalLabel">User Information</h4>
+                </div>
+                <div class="modal-body">
+                  <%= render partial: "form", locals: {zone: @user} %>
+                </div>
+              </div>
+            </div>
+          </div>
       <% else %>
         <%= link_to 'Enter', users_path, class: "enter-btn" %>
       <% end %>
@@ -14,17 +27,4 @@
     <% end %>
   </div>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title" id="myModalLabel">User Information</h4>
-        </div>
-        <div class="modal-body">
-          <%= render partial: "form", locals: {zone: @user} %>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>

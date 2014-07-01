@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    authenticate!
     @users = User.all.order(:name)
     @user = User.find_by(id: current_user.id)
     @geojson = Array.new
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    authenticate!
     @user = User.find(params[:id])
   end
 
