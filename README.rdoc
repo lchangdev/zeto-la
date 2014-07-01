@@ -5,7 +5,7 @@ and more importantly stay connected. This web app was created at Launch Academy'
 Ship It! Saturday, a one day hackathon. I wanted to keep the goal of this web app
 simple yet effective.
 
-http://zeto-la.herokuapp.com/
+http://zeto-la.herokuapp.com
 
 Getting Started
 
