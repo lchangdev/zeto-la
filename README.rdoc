@@ -10,10 +10,13 @@ http://zeto-la.herokuapp.com
 Getting Started
 
 Current Features
-* Login with Facebook.
-* Location of launchers displayed on map.
-* List of all launchers who are using zētō.
+* Users login with Facebook.
+* User prompted for more information if first time logging in.
+* User locations are displayed on map.
+* User views list of all launchers who are using zētō.
 * Users are able to connect with other launchers via email request.
+  Sender of email will receive receipt of request and recipient will
+  recieve notification on new connection request.
 
 Features Being/To Be Implemented
 * Rspec with Capybara and FactoryGirl
@@ -22,7 +25,10 @@ Features Being/To Be Implemented
 * Forum for general discussion.
 * Email request limitations.
 * Media queries for medium sized screens.
-* Nearby Launchers
-* User disclaimers
+* User will see count of nearby Launchers
+* User disclaimers before submitting information.
+* Users will be limited to five request per contact to avoid accidential
+  or user misuse.
+* JavaScript/jQuery to click on launcher name and have map display popup.
 
 Built using Ruby, HTML, CSS, JavaScript, jQuery, AJAX with Rails
