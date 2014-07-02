@@ -8,6 +8,12 @@ simple yet effective.
 http://zeto-la.herokuapp.com
 
 Getting Started
+* Please sign in with facebook.
+* Once logged in an 'enter' link will appear prompting for an address
+  Address will be the only required data.
+* After clicking submit, will be redirect to the index page where you will
+  be shown all launchers who are part of zeto, along with their geographical
+  location and ability to contact them via email.
 
 Current Features
 * Users login with Facebook.
