@@ -3,7 +3,6 @@
 html,
 body {
   height: 100%;
-  width: 100%;
   font-weight: 100;
   font-family: 'Lato';
   color: #65C6BB;
@@ -11,9 +10,9 @@ body {
 }
 
 .body-container {
-  padding-right: 30px;
   height: 100%;
-  overflow: auto;
+  margin-right: 15px;
+  padding-right: 0;
 }
 
 a {
