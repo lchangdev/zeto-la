@@ -6,6 +6,15 @@
       <div class="launch-info-header col-md-12">
         <span class="site-name">zētō</span>
       </div>
+
+      <div class="launch-info-search input-group col-md-12">
+        <%= form_tag users_path, :method => 'get' do %>
+          <div class="col-md-12">
+          <%= text_field_tag :search, params[:search], id: 'search-field', class: "col-md-12", placeholder: 'city, state' %>
+          </div>
+        <% end %>
+      </div>
+
       <div class="launch-info-options col-md-12">
         <table class="table">
           <tr>
@@ -15,15 +24,6 @@
         </table>
       </div>
 
-      <div class="launch-info-nearbys col-md-12">
-      <%= @user.distance_to('33 Harrison Ave. Boston, MA') %>
-      there are
-      <% for user in @user.nearbys(10) %>
-      <% binding.pry %>
-        <%= user.name %>
-      <% end %>
-      launchers near you.
-      </div>
       <div id="flash-message" class="launch-info-alert col-md-12">
         <% if flash.any? %>
           <%= flash[:notice] %>
@@ -31,7 +31,9 @@
       </div>
       <div class="launch-info-users col-md-12">
         <ol class="list-group">
+
           <% @users.each do |user| %>
+
             <li class="user-info list-group-item">
               <img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image">
               <%= user.name %>

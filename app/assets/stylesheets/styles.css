@@ -110,6 +110,15 @@ a:hover {
   text-align: center;
 }
 
+#search-field {
+  background: url("search.png") no-repeat left center;
+  background-size: 20px 20px;
+  padding-left: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+}
+
 .launch-info-users {
   padding-top: 30px;
 }

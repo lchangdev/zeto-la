@@ -1,8 +1,15 @@
 class UsersController < ApplicationController
   def index
     authenticate!
-    @users = User.all.order(:name)
+
     @user = User.find_by(id: current_user.id)
+
+    if !params[:search] || params[:search].empty?
+      @users = User.all.order(:name)
+    else
+      @users = User.all.near(params[:search], 50)
+    end
+
     @geojson = Array.new
     @users.each do |user|
       @geojson << {
