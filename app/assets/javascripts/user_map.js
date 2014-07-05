@@ -16,7 +16,9 @@ $(window).load(function() {
 
     marker = e.layer;
     properties = marker.feature.properties;
-    popupContent = '<div class="popup">' + '<p>' + properties.name + '<br>' + properties.address + '<br>' + properties.company_name + '</p>' + '</div>';
+
+    popupContent = '<div class="popup">' + '<p>' + properties.name + '<br>' +
+      properties.address + '<br>' + properties.company_name + '</p>' + '</div>';
     return marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 100,
@@ -24,6 +26,10 @@ $(window).load(function() {
       maxHeight: 200,
     });
   });
+
+  map.featureLayer.on('click', function(e) {
+          map.panTo(e.layer.getLatLng());
+      });
 
   map.scrollWheelZoom.disable();
 

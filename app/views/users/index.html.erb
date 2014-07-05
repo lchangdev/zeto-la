@@ -16,7 +16,13 @@
       </div>
 
       <div class="launch-info-nearbys col-md-12">
-        <!-- new feature: launchers nearby -->
+      <%= @user.distance_to('33 Harrison Ave. Boston, MA') %>
+      there are
+      <% for user in @user.nearbys(10) %>
+      <% binding.pry %>
+        <%= user.name %>
+      <% end %>
+      launchers near you.
       </div>
       <div id="flash-message" class="launch-info-alert col-md-12">
         <% if flash.any? %>
