@@ -25,19 +25,11 @@
         <p>Click on name to contact.</p>
       </div>
       <div class="launch-info-users col-md-12">
-
         <ol class="list-group">
-        <div class="col-md-10">
           <% @users.each do |user| %>
             <li class="user-info list-group-item"><img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image"> <%= link_to user.name, user_contact_requests_path(user), method: :post %><a/></li>
           <% end %>
-        </div>
-        <div class="col-md-2">
-          <li class="list-group-item"><a href="#">link</a></li>
-        </div>
         </ol>
-
-
       </div>
     </div>
   </div>
