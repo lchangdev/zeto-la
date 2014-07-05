@@ -26,7 +26,13 @@
       <div class="launch-info-users col-md-12">
         <ol class="list-group">
           <% @users.each do |user| %>
-            <li class="user-info list-group-item"><img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image"> <%= user.name %> <%= link_to 'contact', new_user_contact_request_path(user) %></li>
+            <li class="user-info list-group-item">
+              <img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image">
+              <%= user.name %>
+              <% if user.confirmation %>
+                <%= link_to 'contact', new_user_contact_request_path(user) %>
+              <% end %>
+            </li>
           <% end %>
         </ol>
       </div>
