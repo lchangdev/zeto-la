@@ -12,6 +12,7 @@ body {
 .body-container {
   height: 100%;
   margin-right: 15px;
+  margin-left: 0px;
   padding-right: 0;
 }
 
