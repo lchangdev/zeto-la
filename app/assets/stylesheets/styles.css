@@ -5,7 +5,7 @@ body {
   height: 100%;
   font-weight: 300;
   font-family: 'Lato';
-  color: #65C6BB;
+  color: #2D2D2D;
   background-color: white;
 }
 
@@ -17,11 +17,11 @@ body {
 }
 
 a {
-  color: #2D2D2D;
+  color: #65C6BB;
 }
 
 a:hover {
-  color: #65C6BB;
+  color: #2D2D2D;
 }
 
 .table {
@@ -63,6 +63,7 @@ a:hover {
   font-size: 3em;
   letter-spacing: 10px;
   font-weight: 100;
+  color: #65C6BB;
 }
 
 .tag-line {
@@ -161,6 +162,7 @@ a:hover {
   height: 30px;
   width: 30px;
 }
+
 /* ----------- user#edit ----------- */
 
 .edit-container {
