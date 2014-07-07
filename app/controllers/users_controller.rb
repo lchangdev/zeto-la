@@ -55,6 +55,7 @@ class UsersController < ApplicationController
   def edit
     authenticate!
     @user = User.find(params[:id])
+    @cohorts = ['winter 2013', 'spring 2014', 'summer 2014', 'fall 2014', 'winter 2014']
   end
 
   def update

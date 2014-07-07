@@ -1,27 +1,31 @@
 <%= form_for (zone), html: { class: "form-horizontal" } do |f| %>
   <div class="form-group">
     <%= f.label :address, class: "col-md-2 control-label header" %>
-    <div class="col-md-5">
+    <div class="col-md-9">
       <%= f.text_field :address, required: true, class: "form-control" %>
     </div>
   </div>
   <br>
-  <div class="form-group">
-    <%= f.label :cohort, class: "col-md-2 control-label header" %>
-    <div class="col-md-5">
-      <%= f.text_field :cohort, placeholder: "Summer 2014", class: "form-control" %>
-    </div>
-  </div>
-  <br>
+
   <div class="form-group">
     <%= f.label :company_name, class: "col-md-2 control-label header" %>
-    <div class="col-md-5">
+    <div class="col-md-9">
       <%= f.text_field :company_name, class: "form-control" %>
       <p>*If present launcher or not currently employed, please use Launch Academy.</p>
     </div>
   </div>
   <br>
-  <p>zētō helps launchers connect with one another via email and is most effective when all launchers provide their emails so that they may be contacted. However, if you wish to not be contacted but still use zētō's services, please uncheck the box below.</p>
+
+  <div class="form-group">
+    <%= f.label :cohort, class: "col-md-2 control-label header" %>
+    <div class="col-md-9 dropdown">
+      <%= select_tag(:cohort, options_for_select([['Experienced Engineer', 1], ['Winter 2013', 2], ['Spring 2014', 3],
+        ['Summer 2014', 4], ['Fall 2014', 'Winter 2014', 5]]), class: "dropdown") %>
+    </div>
+  </div>
+  <br>
+
+  <p>zētō helps launchers connect with one another via email and is most effective when all launchers provide their emails. However, if you wish to not be contacted but still use zētō's services, please uncheck the box below.</p>
   <div class="form-group">
     <%= f.label 'Confirmation', class: "col-md-2 control-label header" %>
     <div class="col-md-1">
@@ -29,6 +33,7 @@
     </div>
   </div>
   <br>
+
   <div class="modal-footer">
     <%= f.submit 'submit', class: 'btn btn-default' %>
   <% end %>
