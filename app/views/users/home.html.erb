@@ -25,5 +25,10 @@
     <% else %>
       <p>Please sign in first.</p>
     <% end %>
+    <div id="flash-message" class="launch-info-alert col-md-12">
+      <% if flash.any? %>
+        <%= flash[:notice] %>
+      <% end %>
+    </div>
   </div>
 </div>

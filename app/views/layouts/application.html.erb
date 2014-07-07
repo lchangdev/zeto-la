@@ -18,7 +18,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">zētō</a>
+          <% if current_user %>
+            <%= link_to 'zētō', users_path, class: 'navbar-brand' %>
+          <% else %>
+            <%= link_to 'zētō', root_path, class: 'navbar-brand' %>
+          <% end %>
         </div>
         <div class="collapse navbar-collapse">
           <% if current_user %>
@@ -26,6 +30,11 @@
           <% else %>
             <p class="navbar-text navbar-right"><%= link_to "sign in", "/auth/facebook", id: "sign_in", class: 'login-link' %></p>
           <% end %>
+          <ul class="nav navbar-nav">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          </ul>
+        </ul>
         </div>
       </div>
     </div>

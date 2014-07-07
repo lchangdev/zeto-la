@@ -1,6 +1,7 @@
 class ContactRequestsController < ApplicationController
   def new
     @contact_request = ContactRequest.new
+    @recipient_user = User.find(params[:user_id])
   end
 
   def create

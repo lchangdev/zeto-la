@@ -48,6 +48,10 @@ a:hover {
   letter-spacing: 5px;
 }
 
+.navbar-brand:hover {
+  background-color: #EEEEEE;
+}
+
 /* ----------- user#home ----------- */
 
 .jumbotron {
@@ -73,7 +77,7 @@ a:hover {
 }
 
 .enter-btn:hover {
-  background-color: #1BA39C;
+  background-color: #EEEEEE;
   color: #65C6BB;
   border: 1px solid #65C6BB;
   text-decoration: none;
@@ -86,6 +90,11 @@ a:hover {
   bottom: 0;
   height: 100%;
   z-index: 0;
+}
+
+.popup {
+  font-weight: 100;
+  text-align: center;
 }
 
 .index-container {
@@ -111,7 +120,7 @@ a:hover {
 }
 
 #search-field {
-  background: url("search.png") no-repeat left center;
+  background: url("search2.png") no-repeat left center;
   background-size: 20px 20px;
   padding-left: 30px;
   padding-top: 5px;
@@ -125,7 +134,21 @@ a:hover {
 
 .user-info {
   background-color: white;
-  border: 1px solid #65C6BB;
+  border-top: 1px solid #65C6BB;
+  border-bottom: 1px solid #65C6BB;
+  border-left: none;
+  border-right: none;
+  border-collapse: collapse;
+}
+
+.user-info:last-child {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.user-info:first-child {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 
 .avatar {
@@ -134,20 +157,21 @@ a:hover {
   border: 1px solid #65C6BB;
 }
 
-.popup {
-  font-weight: 100;
-}
-
-.popup p {
-  line-height: 2px;
-  letter-spacing: 2px;
-}
-
 /* ----------- user#edit ----------- */
 
 .edit-container {
   text-align: center;
   padding-top: 100px;
+}
+
+.delete-link {
+  float: left;
+}
+
+/* ----------- contact_request#new ----------- */
+
+.contact-request-container {
+  padding-top: 80px;
 }
 
 /* ----------- media queries ----------- */
@@ -161,13 +185,23 @@ a:hover {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #map {
-    height: 50%;
+    height: 60%;
   }
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 768px) {
+  #map {
+    height: 60%;
+  }
+
+  .homepage-container {
+    padding-top: 80px;
+  }
+}
+
+@media (min-width: 992px) {
   .launch-info {
     height: 100%;
     background-color: white;

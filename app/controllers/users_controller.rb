@@ -8,6 +8,13 @@ class UsersController < ApplicationController
       @users = User.all.order(:name)
     else
       @users = User.all.near(params[:search], 50)
+      count = @users.to_a.count
+      if count == 1
+        word = ['is', 'Launcher']
+      else
+        word = ['are', 'Launchers']
+      end
+      flash[:notice] = "There #{word.first} #{@users.to_a.count} #{word.last} within 50 miles of #{params[:search]}."
     end
 
     @geojson = Array.new
@@ -38,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def home
-    if signed_in?
+    if current_user
       @user = User.find_by(id: current_user)
     end
   end
@@ -56,6 +63,17 @@ class UsersController < ApplicationController
     else
       flash[:notice] = "Did not save. Please try again."
       render :new
+    end
+  end
+
+  def destroy
+    @user = User.find(current_user)
+    if @user.destroy
+      flash[:notice] = "You have successfully deleted your account."
+      redirect_to signout_path
+    else
+      flash[:notice] = "Unsuccessful. Please try again."
+      render :index
     end
   end
 

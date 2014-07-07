@@ -18,7 +18,7 @@
       <div class="launch-info-options col-md-12">
         <table class="table">
           <tr>
-            <td><a href="#myModal" role="button" data-toggle="modal" rel="tooltip" data-original-title='Hello'>Edit</a></td>
+            <td><a href="#editModal" role="button" data-toggle="modal" rel="tooltip" data-original-title='Hello'>Edit</a></td>
             <td>Sort By</td>
           </tr>
         </table>
@@ -29,16 +29,15 @@
           <%= flash[:notice] %>
         <% end %>
       </div>
+
       <div class="launch-info-users col-md-12">
         <ol class="list-group">
-
           <% @users.each do |user| %>
-
             <li class="user-info list-group-item">
               <img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image">
               <%= user.name %>
               <% if user.confirmation %>
-                <%= link_to 'contact', new_user_contact_request_path(user) %>
+                <%= link_to 'contact', new_user_contact_request_path(user), class: 'user-contact-link' %>
               <% end %>
             </li>
           <% end %>
@@ -47,12 +46,12 @@
     </div>
   </div>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title" id="myModalLabel">User Information</h4>
+          <h4 class="modal-title" id="editModalLabel">User Information</h4>
         </div>
         <div class="modal-body">
           <%= render partial: "form", locals: {zone: @user} %>

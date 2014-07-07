@@ -1,5 +1,5 @@
-$(window).load(function() {
-  var map = L.mapbox.map('map', 'lchangdev.ij5mliof').setView([42.353, -71.072], 15);
+$(document).ready(function() {
+  var map = L.mapbox.map('map', 'lchangdev.ij5mliof', { zoomControl: false }).setView([42.353, -71.072], 15);
 
   $.ajax({
     dataType: 'text',

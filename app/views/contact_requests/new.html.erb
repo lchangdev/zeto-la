@@ -1,22 +1,27 @@
-<h1> contact request page </h1>
-<h1> contact request page </h1>
-
-<%= form_for (@contact_request), url: user_contact_requests_path, html: { class: "form-horizontal" } do |f| %>
-  <div class="form-group">
-    <%= f.label :title, class: "col-md-2 control-label header" %>
-    <div class="col-md-5">
-      <%= f.text_field :title, required: true, class: "form-control" %>
+<div class="contact-request-container row">
+  <div class="col-md-11 col-md-offset-1">
+    <h1 class="header">Contact Request Form</h1>
+    <h4 class="header">To: <%= @recipient_user.name %></h4>
+    <h4 class="header">From: <%= current_user.name %></h4>
+  </div>
+  <div class="col-md-12">
+  <%= form_for (@contact_request), url: user_contact_requests_path, html: { class: "form-horizontal" } do |f| %>
+    <div class="form-group">
+      <%= f.label :title, class: "col-md-2 control-label header" %>
+      <div class="col-md-5">
+        <%= f.text_field :title, required: true, class: "form-control" %>
+      </div>
     </div>
-  </div>
-  <br>
-  <div class="form-group">
-    <%= f.label :description, class: "col-md-2 control-label header" %>
-    <div class="col-md-5">
-      <%= f.text_area :description, class: "form-control" %>
+    <br>
+    <div class="form-group">
+      <%= f.label :description, class: "col-md-2 control-label header" %>
+      <div class="col-md-5">
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
     </div>
-  </div>
-  <br>
-  <div class="col-md-5">
-    <%= f.submit 'submit', class: 'btn btn-default' %>
-  </div>
-<% end %>
+    <br>
+    <div class="col-md-5 col-md-offset-1">
+      <%= f.submit 'submit', class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>
