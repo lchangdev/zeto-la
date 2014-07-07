@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   def index
     authenticate!
 
     @user = User.find_by(id: current_user.id)
 
     if !params[:search] || params[:search].empty?
-      @users = User.all.order(:name)
+      @users = User.all.order(sort_column + " " + sort_direction)
     else
       @users = User.all.near(params[:search], 50)
       count = @users.to_a.count
@@ -81,5 +83,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:address, :cohort, :company_name, :confirmation)
+  end
+
+  def sort_column
+    User.column_names.include?(params[:sort]) ? params[:sort] : 'name'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
   end
 end
