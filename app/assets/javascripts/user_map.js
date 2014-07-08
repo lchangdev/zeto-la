@@ -1,38 +1,40 @@
 $(document).ready(function() {
   var map = L.mapbox.map('map', 'lchangdev.ij5mliof', { zoomControl: false }).setView([42.353, -71.072], 15);
 
-  $.ajax({
-    dataType: 'text',
-    url: '/users.json',
-    success: function(data) {
-      var geojson;
-      geojson = $.parseJSON(data);
-      return map.featureLayer.setGeoJSON(geojson);
-    }
-  });
+  var data = $.parseJSON($.ajax({
+    url:  '/users.json',
+    dataType: "json",
+    async: false
+  }).responseText);
 
-  map.featureLayer.on('layeradd', function(e) {
-    var marker, popupContent, properties;
+  var featureLayer = L.mapbox.featureLayer(data).addTo(map)
 
-    marker = e.layer;
+  map.featureLayer.on('layeradd', function(data) {
+    var marker;
+    var properties;
+    var popupContent;
+
+    marker = data.layer;
+
     properties = marker.feature.properties;
 
     popupContent = '<div class="popup">' + '<p>' + properties.name + '<br>' +
       properties.address + '<br>' + properties.company_name + '</p>' + '</div>';
-    return marker.bindPopup(popupContent, {
+
+    marker.bindPopup(popupContent, {
       closeButton: false,
       minWidth: 100,
       maxWidth: 200,
       maxHeight: 200,
     });
+
   });
 
-  map.featureLayer.on('click', function(e) {
-          map.panTo(e.layer.getLatLng());
-      });
+  map.featureLayer.on('click', function(data) {
+    map.panTo(data.layer.getLatLng());
+  });
 
   map.scrollWheelZoom.disable();
 
   new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
-
 });
