@@ -9,31 +9,31 @@ feature 'User contacts launcher', %Q{
   scenario 'user receives confirmation email and sends request email' do
     user = FactoryGirl.create(:user, :with_name, :with_email, :with_address,
       :with_cohort)
-    user2 = FactoryGirl.create(:user, :with_name, :with_email)
+    user2 = FactoryGirl.create(:user, :with_name, :with_email, :with_address,
+      :with_cohort)
     visit root_path
-    mock_auth(user)
+    mock_auth(user2)
     click_link 'sign in'
     click_link 'Enter'
     ActionMailer::Base.deliveries = []
 
-    click_link('.email-image')
-    save_and_open_page
+    page.first('.email-link').click
     fill_in 'Title', with: 'Generic Title'
     fill_in 'Description', with: 'Generic Description'
 
-    click_link 'submit'
+    click_button 'submit'
 
     expect(page).to have_content('Successfully sent your request.')
     expect(ActionMailer::Base.deliveries.size).to eql(2)
     first_email = ActionMailer::Base.deliveries.first
     last_email = ActionMailer::Base.deliveries.last
 
-    expect(first_email).to have_subject('Request to connect with #{user2.name}.')
-    expect(first_email).to deliver_to(user2.email)
-    expect(first_email).to have_body_text("Dear #{user2.name},")
-
-    expect(last_email).to have_subject("Request sent to #{user2.name}")
+    expect(last_email).to have_subject("Request to connect with #{user.name}.")
     expect(last_email).to deliver_to(user.email)
     expect(last_email).to have_body_text("Dear #{user.name},")
+
+    expect(first_email).to have_subject("Request sent to #{user.name}")
+    expect(first_email).to deliver_to(user2.email)
+    expect(first_email).to have_body_text("Dear #{user2.name},")
   end
 end

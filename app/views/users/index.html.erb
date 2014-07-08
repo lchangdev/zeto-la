@@ -47,7 +47,7 @@
               <%= user.name %>
               <%= user.cohort %>
               <% if user.confirmation %>
-                <%= link_to new_user_contact_request_path(user) do %>
+                <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>
                   <%= image_tag('email.png', class: 'email-image') %>
                 <% end %>
               <% end %>
