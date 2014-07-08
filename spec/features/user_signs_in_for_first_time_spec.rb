@@ -12,7 +12,7 @@ feature 'User signs in for the first time', %Q{
     mock_auth(user)
     click_link 'sign in'
 
-    click_link 'Enter'
+    click_button 'Enter'
     fill_in 'Address', with: user.address
     fill_in 'Company name', with: user.company_name
     select('Summer 2014', from: 'cohort')

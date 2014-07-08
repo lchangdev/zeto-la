@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   def index
     authenticate!
 
-    @user = User.find_by(id: current_user.id)
-
     if !params[:search] || params[:search].empty?
       @users = User.all.order(sort_column + " " + sort_direction)
     else
@@ -19,30 +17,33 @@ class UsersController < ApplicationController
       flash[:notice] = "There #{word.first} #{@users.to_a.count} #{word.last} within 50 miles of #{params[:search]}."
     end
 
-    @geojson = Array.new
-    @users.each do |user|
-      @geojson << {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [user.longitude, user.latitude]
-        },
-        properties: {
-          address: user.address,
-          cohort: user.cohort,
-          company_name: user.company_name,
-          name: user.name,
-          email: user.email,
-          :'marker-color' => '#65C6BB',
-          :'marker-symbol' => 'circle',
-          :'marker-size' => 'medium'
+    if signed_in?
+      @user = User.find_by(id: current_user.id)
+      @geojson = Array.new
+      @users.each do |user|
+        @geojson << {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [user.longitude, user.latitude]
+          },
+          properties: {
+            address: user.address,
+            cohort: user.cohort,
+            company_name: user.company_name,
+            name: user.name,
+            email: user.email,
+            :'marker-color' => '#65C6BB',
+            :'marker-symbol' => 'circle',
+            :'marker-size' => 'medium'
+          }
         }
-      }
-    end
+      end
 
-    respond_to do |format|
-      format.html
-      format.json {render json: @geojson}
+      respond_to do |format|
+        format.html
+        format.json {render json: @geojson}
+      end
     end
   end
 
