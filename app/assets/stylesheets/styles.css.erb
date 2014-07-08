@@ -6,6 +6,8 @@ body {
   font-weight: 300;
   font-family: 'Lato';
   color: #2D2D2D;
+/*  background: url('<%= asset_path("test2.jpg") %>') no-repeat left center;*/
+/*  background-size: cover;*/
   background-color: white;
 }
 
@@ -56,7 +58,7 @@ a:hover {
 
 .jumbotron {
   text-align: center;
-  background-color: white;
+  background-color: transparent;
 }
 
 .site-name {
@@ -78,9 +80,6 @@ a:hover {
 }
 
 .enter-btn:hover {
-  background-color: #EEEEEE;
-  color: #65C6BB;
-  border: 1px solid #65C6BB;
   text-decoration: none;
 }
 
@@ -115,7 +114,8 @@ a:hover {
   background-color: white;
 }
 
-.launch-info-alert {
+.launch-info-alert,
+.credits {
   padding-top: 20px;
   text-align: center;
 }
@@ -165,6 +165,10 @@ a:hover {
 
 .email-image:hover {
   border-bottom: 1px solid #65C6BB;;
+}
+
+.credits {
+  font-size: 12px;
 }
 
 /* ----------- user#edit ----------- */
