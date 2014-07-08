@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var map = L.mapbox.map('map', 'lchangdev.ij5mliof', { zoomControl: false }).setView([42.353, -71.072], 15)
+  var map = L.mapbox.map('map', 'lchangdev.ij5mliof', { zoomControl: false }).setView([42.353, -71.072], 15);
 
   var data = $.parseJSON($.ajax({
     url:  '/users.json',
@@ -27,7 +27,6 @@ $(document).ready(function() {
       maxWidth: 200,
       maxHeight: 200,
     });
-
   });
 
   featureLayer.on('click', function(data) {
