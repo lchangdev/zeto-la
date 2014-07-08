@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 feature 'User signs in', %Q{
-  As a authenticated user
+  As a user
   I want to sign in
-  So that I can continue to my profile page
+  So that I can be autenticated and redirected to index page
 } do
 
   scenario 'user signs in with facebook' do
