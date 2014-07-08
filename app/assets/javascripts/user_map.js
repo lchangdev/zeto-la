@@ -18,8 +18,7 @@ $(document).ready(function() {
 
     properties = marker.feature.properties;
 
-    popupContent = '<div class="popup">' + '<p>' + properties.name + '<br>' +
-      properties.address + '<br>' + properties.company_name + '</p>' + '</div>';
+    popupContent = '<div class="popup">' + '<p>' + properties.name + '<br>' + properties.company_name + '</p>' + '</div>';
 
     marker.bindPopup(popupContent, {
       closeButton: false,

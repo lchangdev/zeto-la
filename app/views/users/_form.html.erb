@@ -19,8 +19,8 @@
   <div class="form-group">
     <%= f.label :cohort, class: "col-md-2 control-label header" %>
     <div class="col-md-9 dropdown">
-      <%= select_tag(:cohort, options_for_select([['Experience Engineer', 1], ['Winter 2013', 2], ['Spring 2014', 3],
-        ['Summer 2014', 4], ['Fall 2014', 'Winter 2014', 5]]), class: "dropdown") %>
+      <%= f.select :cohort, [['E.E.'], ['Winter 2013'], ['Spring 2014'], ['Summer 2014'], ['Fall 2014', 'Winter 2014']],
+        class: "dropdown" %>
     </div>
   </div>
   <br>

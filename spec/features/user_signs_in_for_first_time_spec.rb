@@ -21,4 +21,10 @@ feature 'User signs in for the first time', %Q{
     expect(page).to have_content('Successfully updated your information.')
     expect(page).to have_content user.name
   end
+
+  scenario 'Unauthenticated user cannot update information' do
+    visit root_path
+
+    expect(page).to have_content('Please sign in first.')
+  end
 end

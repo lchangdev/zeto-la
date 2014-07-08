@@ -163,6 +163,13 @@ a:hover {
   width: 30px;
 }
 
+.email-image:hover {
+  border-bottom: 1px solid #65C6BB;;
+}
+
+.breakers {
+  font-size: 20px;
+}
 /* ----------- user#edit ----------- */
 
 .edit-container {
