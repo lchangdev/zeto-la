@@ -7,8 +7,10 @@ feature 'Returning user signs in and sees all users', %Q{
 } do
 
   scenario 'Returning user views all users' do
-    user1 = FactoryGirl.create(:user, :with_address, :with_cohort)
-    user2 = FactoryGirl.create(:user, :with_address, :with_cohort)
+    user1 = FactoryGirl.create(:user, :with_name, :with_email,
+      :with_address, :with_cohort)
+    user2 = FactoryGirl.create(:user, :with_name, :with_email,
+      :with_address, :with_cohort)
     visit root_path
     mock_auth(user1)
     click_link 'sign in'

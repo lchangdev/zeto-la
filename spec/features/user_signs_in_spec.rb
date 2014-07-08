@@ -7,7 +7,7 @@ feature 'User signs in', %Q{
 } do
 
   scenario 'user signs in with facebook' do
-    user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user, :with_name, :with_email)
     visit root_path
     mock_auth(user)
     click_link 'sign in'

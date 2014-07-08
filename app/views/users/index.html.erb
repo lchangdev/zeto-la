@@ -44,8 +44,8 @@
           <% @users.each do |user| %>
             <li class="user-info list-group-item col-md-12">
               <img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image">
-              <%= user.name %> <span class="breakers">|</span>
-              <%= user.cohort %> <span class="breakers">|</span>
+              <%= user.name %>
+              <%= user.cohort %>
               <% if user.confirmation %>
                 <%= link_to new_user_contact_request_path(user) do %>
                   <%= image_tag('email.png', class: 'email-image') %>

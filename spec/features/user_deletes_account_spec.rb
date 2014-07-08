@@ -7,7 +7,8 @@ feature 'User able to delete account', %Q{
 
   context 'authenticated user' do
     before :each do
-      @user = FactoryGirl.create(:user, :with_address, :with_cohort)
+      @user = FactoryGirl.create(:user, :with_name, :with_email,
+        :with_address, :with_cohort)
       visit root_path
       mock_auth(@user)
       click_link 'sign in'
@@ -23,7 +24,8 @@ feature 'User able to delete account', %Q{
     end
 
     scenario 'unauthorized user uable to delete another users account' do
-      user2 = FactoryGirl.create(:user, :with_id, :with_address, :with_cohort)
+      user2 = FactoryGirl.create(:user, :with_id, :with_name, :with_email,
+        :with_address, :with_cohort)
       visit edit_user_path(user2)
 
       expect(page).to have_content('You are not authorized to do that.')
@@ -31,7 +33,8 @@ feature 'User able to delete account', %Q{
   end
 
   scenario 'unauthenticated user cannot delete account' do
-    user = FactoryGirl.create(:user, :with_id, :with_address, :with_cohort)
+    user = FactoryGirl.create(:user, :with_name, :with_email,
+      :with_id, :with_address, :with_cohort)
     visit edit_user_path(user)
 
     expect(page).to have_content('You need to sign in if you want to do that.')
