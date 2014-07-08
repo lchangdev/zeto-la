@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var map = L.mapbox.map('map', 'lchangdev.ij5mliof', { zoomControl: false }).setView([42.353, -71.072], 15);
+  var map = L.mapbox.map('map', 'lchangdev.ij5mliof', { zoomControl: false }).setView([42.353, -71.072], 15)
 
   var data = $.parseJSON($.ajax({
     url:  '/users.json',
@@ -9,12 +9,12 @@ $(document).ready(function() {
 
   var featureLayer = L.mapbox.featureLayer(data).addTo(map)
 
-  map.featureLayer.on('layeradd', function(data) {
+  featureLayer.eachLayer(function(data) {
     var marker;
     var properties;
     var popupContent;
 
-    marker = data.layer;
+    marker = data;
 
     properties = marker.feature.properties;
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
   });
 
-  map.featureLayer.on('click', function(data) {
+  featureLayer.on('click', function(data) {
     map.panTo(data.layer.getLatLng());
   });
 
