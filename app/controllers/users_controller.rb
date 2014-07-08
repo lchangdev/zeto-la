@@ -55,7 +55,14 @@ class UsersController < ApplicationController
 
   def edit
     authenticate!
-    @user = User.find(params[:id])
+    if current_user
+      if current_user.id == params[:id]
+        @user = User.find(params[:id])
+      else
+        flash[:notice] = "You are not authorized to do that."
+        redirect_to root_path
+      end
+    end
   end
 
   def update

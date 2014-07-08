@@ -15,7 +15,7 @@ feature 'User signs in for the first time', %Q{
     click_button 'Enter'
     fill_in 'Address', with: user.address
     fill_in 'Company name', with: user.company_name
-    select('Summer 2014', from: 'cohort')
+    select('Summer 2014', from: 'Cohort')
     click_on 'submit'
 
     expect(page).to have_content('Successfully updated your information.')

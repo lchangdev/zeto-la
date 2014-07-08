@@ -1,5 +1,8 @@
 FactoryGirl.define do
   factory :user do
+    trait :with_id do
+        sequence(:id) {|n| n}
+    end
     provider 'facebook'
     sequence(:uid) {|n| "#{n*1234567}"}
     name %w[Joe Bloggs, John Snow, John Joe,].sample
