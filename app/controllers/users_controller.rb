@@ -7,14 +7,14 @@ class UsersController < ApplicationController
     if !params[:search] || params[:search].empty?
       @users = User.all.order(sort_column + " " + sort_direction)
     else
-      @users = User.all.near(params[:search], 50)
+      @users = User.all.near(params[:search], 20)
       count = @users.to_a.count
       if count == 1
         word = ['is', 'Launcher']
       else
         word = ['are', 'Launchers']
       end
-      flash[:notice] = "There #{word.first} #{@users.to_a.count} #{word.last} within 50 miles of #{params[:search]}."
+      flash[:notice] = "There #{word.first} #{@users.to_a.count} #{word.last} within 20 miles of #{params[:search]}."
     end
 
     if signed_in?

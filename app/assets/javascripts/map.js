@@ -15,9 +15,7 @@ $(document).ready(function() {
     var popupContent;
 
     marker = data;
-
     properties = marker.feature.properties;
-
     popupContent = '<div class="popup">' + '<p>' + properties.name + '<br>' + properties.company_name + '</p>' + '</div>';
 
     marker.bindPopup(popupContent, {
@@ -35,4 +33,39 @@ $(document).ready(function() {
   map.scrollWheelZoom.disable();
 
   new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
+
+  var search_params = getSearchQuery("search");
+  var geocoder = L.mapbox.geocoder('lchangdev.ij5mliof')
+
+  function getSearchQuery(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split("=");
+
+      if (pair[0] == variable) {
+        var unfilteredParams = pair[1]
+        var filteredParams = unfilteredParams.replace(/([~!@#$%^&*()_+=`{}\[\]\|\\:;'<>,.\/? ])+/g, " ").replace("2C", "")
+        return filteredParams
+      }
+    }
+    alert('Query Variable ' + variable + ' not found');
+  }
+
+  function searchMap(err, data) {
+    if (data.lbounds) {
+        map.fitBounds(data.lbounds);
+    } else if (data.latlng) {
+        map.setView([data.latlng[0], data.latlng[1]], 13);
+    }
+  }
+
+  // $('#search-field').bind('keypress', function(e) {
+  //   var code = e.keyCode || e.which;
+  //   if(code == 13) {
+  //     geocoder.query(search_params, searchMap);
+  //   }
+  // })
+
+  geocoder.query(search_params, searchMap);
 });
