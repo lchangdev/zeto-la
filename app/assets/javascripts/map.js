@@ -26,10 +26,6 @@ $(document).ready(function() {
     });
   });
 
-  featureLayer.on('click', function(data) {
-    map.panTo(data.layer.getLatLng());
-  });
-
   map.scrollWheelZoom.disable();
 
   new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
@@ -58,7 +54,12 @@ $(document).ready(function() {
         map.setView([data.latlng[0], data.latlng[1]], 13);
     }
   }
+  // move map to middle on marker click
+  // featureLayer.on('click', function(data) {
+  //   map.panTo(data.layer.getLatLng());
+  // });
 
+  // event when clicking enter in search field
   // $('#search-field').bind('keypress', function(e) {
   //   var code = e.keyCode || e.which;
   //   if(code == 13) {
