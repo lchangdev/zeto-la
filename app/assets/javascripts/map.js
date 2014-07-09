@@ -49,7 +49,6 @@ $(document).ready(function() {
         return filteredParams
       }
     }
-    alert('Query Variable ' + variable + ' not found');
   }
 
   function searchMap(err, data) {
