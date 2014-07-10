@@ -33,12 +33,12 @@ $(document).ready(function() {
   $('li div').click(function() {
     var current = $(this);
     var currentlyClickedName = current.find('span').text();
-    debugger
+
     featureLayer.eachLayer(function(marker) {
       var id;
       if (marker.feature.properties.name === currentlyClickedName) {
-        id = featureLayer._leaflet_id;
-        map._layers[id].openPopup();
+        id = marker._leaflet_id;
+        return featureLayer._layers[id].openPopup(marker);
       }
     });
   });
