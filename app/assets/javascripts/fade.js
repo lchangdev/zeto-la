@@ -5,4 +5,17 @@ $(document).ready(function(){
   $('.enter-btn, .user-info').mouseleave(function(){
     $(this).fadeTo('medium', 1);
   });
+
+  // $('#header, #tagline-container').hide();
+  // $('#left-overlay').mouseenter(function(){
+  //   $(this).fadeOut('fast', function(){
+  //     $('#header, #tagline-container').fadeIn('slow');
+  //   });
+  // });
+  // $('.left-screen').mouseleave(function(){
+  //   $('#header, #tagline-container').fadeOut('fast', function(){
+  //     $('#left-overlay').fadeIn('slow');
+  //   });
+  //   $('#header, #tagline-container').hide();
+  // });
 });

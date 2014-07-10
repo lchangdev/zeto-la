@@ -30,9 +30,10 @@ $(document).ready(function() {
     });
   });
 
-  $('li p').click(function(data) {
+  $('li div').click(function() {
     var current = $(this);
     var currentlyClickedName = current.find('span').text();
+    debugger
     featureLayer.eachLayer(function(marker) {
       var id;
       if (marker.feature.properties.name === currentlyClickedName) {
