@@ -87,7 +87,7 @@ $(document).ready(function() {
   // })
 
   // disable scroll zoom
-  map.scrollWheelZoom.disable();
+  // map.scrollWheelZoom.disable();
 
   // move zoom controls to bottom right
   new L.Control.Zoom({ position: 'bottomright' }).addTo(map);

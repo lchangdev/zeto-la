@@ -25,4 +25,12 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  # def self.search(search)
+  #   if search
+  #     all.near(search, 20)
+  #   else
+  #     scoped
+  #   end
+  # end
 end

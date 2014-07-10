@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if !params[:search] || params[:search].empty?
       @users = User.all.order(sort_column + " " + sort_direction)
     else
-      @users = User.all.near(params[:search], 20)
+      @users = User.all.order(sort_column + " " + sort_direction).near(params[:search], 20)
       count = @users.to_a.count
       if count == 1
         word = ['is', 'Launcher']
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
             company_name: user.company_name,
             name: user.name,
             email: user.email,
+            image: user.image,
             :'marker-color' => '#65C6BB',
             :'marker-symbol' => 'circle',
             :'marker-size' => 'medium'
@@ -94,6 +95,7 @@ class UsersController < ApplicationController
   end
 
   def sort_column
+    # need to make more specific for security
     User.column_names.include?(params[:sort]) ? params[:sort] : 'name'
   end
 
