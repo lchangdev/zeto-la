@@ -6,8 +6,6 @@ body {
   font-weight: 300;
   font-family: 'Lato';
   color: #2D2D2D;
-/*  background: url('<%= asset_path("test2.jpg") %>') no-repeat left center;*/
-/*  background-size: cover;*/
   background-color: white;
 }
 
@@ -110,13 +108,6 @@ a:hover {
   text-align: center;
 }
 
-/*.leaflet-container.dark .leaflet-control-zoom-in,
-.leaflet-container.dark .leaflet-control-zoom-out,
-.leaflet-container.dark .leaflet-control-layers-toggle,
-.leaflet-container.dark .mapbox-icon {
-background: url('<%= asset_path("icons-ffffff.png") %>');
-}
-*/
 .index-container {
   height: 100%;
 }
@@ -191,6 +182,22 @@ background: url('<%= asset_path("icons-ffffff.png") %>');
   font-size: 12px;
 }
 
+.collapse-trigger-container {
+  padding-top: 50px;
+  z-index: 1;
+  position: fixed;
+}
+
+#collapse-trigger {
+  background-color: white;
+  border-radius: 0;
+  opacity: 0.6;
+}
+
+.in {
+  height: 100% !important;
+}
+
 /* ----------- user#edit ----------- */
 
 .edit-container {
@@ -211,7 +218,7 @@ background: url('<%= asset_path("icons-ffffff.png") %>');
 /* ----------- media queries ----------- */
 
 @media (min-width: 768px) {
-  .launch-info {
+  .launch-info-container {
     background-size: 100%;
     position: static;
     background-position: center;
@@ -223,6 +230,10 @@ background: url('<%= asset_path("icons-ffffff.png") %>');
   #map {
     height: 60%;
   }
+
+  .collapse-trigger-container {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -233,14 +244,18 @@ background: url('<%= asset_path("icons-ffffff.png") %>');
   .homepage-container {
     padding-top: 80px;
   }
+
+  .collapse-trigger-container {
+    display: none;
+  }
 }
 
 @media (min-width: 992px) {
-  .launch-info {
+  .launch-info-container {
     height: 100%;
     background-color: white;
     border: 1px solid #65C6BB;
-    padding-top: 100px;
+    padding-top: 50px;
     left: 1.3%;
     position: absolute;
     display: block;

@@ -6,6 +6,13 @@ $(document).ready(function(){
     $(this).fadeTo('medium', 1);
   });
 
+  $('#collapse-trigger').mouseenter(function(){
+    $(this).fadeTo('medium', 0.8);
+  });
+  $('#collapse-trigger').mouseleave(function(){
+    $(this).fadeTo('medium', 0.6);
+  });
+
   // $('#header, #tagline-container').hide();
   // $('#left-overlay').mouseenter(function(){
   //   $(this).fadeOut('fast', function(){

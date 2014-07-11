@@ -48,12 +48,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def home
-    if current_user
-      @user = User.find_by(id: current_user)
-    end
-  end
-
   def edit
     authenticate!
     if current_user
@@ -86,6 +80,16 @@ class UsersController < ApplicationController
       flash[:notice] = "Unsuccessful. Please try again."
       render :index
     end
+  end
+
+  def home
+    if current_user
+      @user = User.find_by(id: current_user)
+    end
+  end
+
+  def about
+
   end
 
   private

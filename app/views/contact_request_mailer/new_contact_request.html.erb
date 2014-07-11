@@ -5,11 +5,21 @@
   </head>
   <body>
     <h1>zētō</h1>
-    <p>Dear <%= @recipient.name %>,</p>
-    <p>We want to inform you that <%= @sender.name %> has requested to connect with you. If you wish to respond to <%= @sender.name %>&lsquo;s request, you can reach them at <%= @sender.email %>.</p>
+    <p>Dear <%= @recipient.user.name %>,</p>
+    <p>We want to inform you that <%= @sender.name %> has requested to connect with you. You can read <%= @sender.name%>&lsquo;s below. If you wish to respond to <%= @sender.name %>&lsquo;s request, you can reach them at <%= @sender.email %>.</p>
+    <br>
+    <br>
+    <h3>Request:</h3>
+    <p>
+      <%= @recipient.title %>
+      <%= @recipient.description %>
+    </p>
+    <br>
+    <br>
     <p>We here at zētō hope that a valuable network can be established.</p>
     <p>Have a great day!</p>
     <p>Best regards,</p>
     <p>zētō</p>
+
   </body>
 </html>

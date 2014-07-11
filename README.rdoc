@@ -11,30 +11,19 @@ Getting Started
 * Please sign in with facebook.
 * Once logged in an 'enter' link will appear prompting for an address
   Address will be the only required data.
-* After clicking submit, will be redirect to the index page where you will
-  be shown all launchers who are part of zeto, along with their geographical
+* After clicking submit, will be redirected to the index page and
+  shown all launchers who are part of zeto, along with their geographical
   location and ability to contact them via email.
 
 Current Features
 * Users login with Facebook.
-* User prompted for more information if first time logging in.
 * User locations are displayed on map.
 * User views list of all launchers who are using zētō.
 * Users are able to connect with other launchers via email request.
-  Sender of email will receive receipt of request and recipient will
-  recieve notification on new connection request.
-
-Features Being/To Be Implemented
-* Rspec with Capybara and FactoryGirl
-* AJAX put request for users editing information.
-* Sort launchers by name, address and cohort.
-* Forum for general discussion.
-* Email request limitations.
-* Media queries for medium sized screens.
-* User will see count of nearby Launchers
-* User disclaimers before submitting information.
-* Users will be limited to five request per contact to avoid accidential
-  or user misuse.
-* JavaScript/jQuery to click on launcher name and have map display popup.
+* Option to be contacted by other launchers.
+* Sort launchers by name or cohort.
+* User able to search for launchers by address.
+* Users are shown number of launchers within 20 miles of search parameters.
+* User able to open popups programmatically.
 
 Built using Ruby, HTML, CSS, JavaScript, jQuery, AJAX with Rails
