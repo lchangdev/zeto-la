@@ -1,5 +1,5 @@
 <div class="index-container row">
-  <div class="collapse-trigger-container col-md-1 col-md-offset-11">
+  <div class="collapse-trigger-container col-md-offset-11">
     <button type="button" class="btn" id="collapse-trigger" data-toggle="collapse" data-target="#launchers" data-text-swap="expand">
       collapse
     </button>
@@ -24,7 +24,7 @@
     <div class="launch-info-options col-md-12">
       <table class="table">
         <tr>
-          <td><a href="#editModal" role="button" data-toggle="modal" rel="tooltip" data-original-title='Hello'>Edit</a></td>
+          <td><a href="#editModal" role="button" data-toggle="modal" rel="tooltip">Edit</a></td>
         </tr>
       </table>
     </div>
@@ -49,18 +49,20 @@
       <ol class="list-group">
         <% @users.each do |user| %>
           <li class="user-info list-group-item col-md-12">
-            <div class="col-md-12">
-              <p>
-                <img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image">
+            <div class="col-md-10">
+              <img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image">
+              <a href="#">
                 <span><%= user.name %></span>
-                <%= user.cohort %>
-                <% if user.confirmation %>
-                  <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>
-                    <%= image_tag('email.png', class: 'email-image') %>
-                  <% end %>
-                <% end %>
-              </p>
+              </a>
             </div>
+            <div class="col-md-1">
+              <% if user.confirmation %>
+                <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>
+                  <%= image_tag('email.png', class: 'email-image') %>
+                <% end %>
+              <% end %>
+            </div>
+
           </li>
         <% end %>
       </ol>
@@ -83,4 +85,20 @@
       </div>
     </div>
   </div>
+
+  <% @users.each do |user| %>
+  <div class="modal fade" id="showModal<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="showModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="showModalLabel"><%= user.name %></h4>
+        </div>
+        <div class="modal-body">
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>

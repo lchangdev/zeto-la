@@ -34,6 +34,7 @@ class UsersController < ApplicationController
             name: user.name,
             email: user.email,
             image: user.image,
+            id: user.id,
             :'marker-color' => '#65C6BB',
             :'marker-symbol' => 'circle',
             :'marker-size' => 'medium'

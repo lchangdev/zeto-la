@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     marker = data;
     properties = marker.feature.properties;
-    popupContent = '<div class="popup" id="popup">' + '<p>' + properties.name + '<br>' + properties.company_name + '</p>' + '</div>';
+    popupContent = '<div class="popup">' + '<p>' + properties.name + '</p>' + '<a href="#showModal' + properties.id + '" role="button" data-toggle="modal" rel="tooltip">' + 'details' + '</a>' + '</div>';
 
     marker.bindPopup(popupContent, {
       closeButton: false,
@@ -30,7 +30,7 @@ $(document).ready(function() {
     });
   });
 
-  $('li div').click(function() {
+  $('li a').click(function() {
     var current = $(this);
     var currentlyClickedName = current.find('span').text();
 

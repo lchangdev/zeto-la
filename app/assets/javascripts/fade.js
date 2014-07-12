@@ -1,28 +1,15 @@
 $(document).ready(function(){
-  $('.enter-btn, .user-info, .initial-enter-btn').mouseenter(function(){
+  $('.enter-btn, .initial-enter-btn').mouseenter(function(){
     $(this).fadeTo('medium', 0.6);
   });
-  $('.enter-btn, .user-info, .initial-enter-btn').mouseleave(function(){
+  $('.enter-btn, .initial-enter-btn').mouseleave(function(){
     $(this).fadeTo('medium', 1);
   });
 
   $('#collapse-trigger').mouseenter(function(){
-    $(this).fadeTo('medium', 0.8);
+    $(this).fadeTo('medium', 1);
   });
   $('#collapse-trigger').mouseleave(function(){
-    $(this).fadeTo('medium', 0.6);
+    $(this).fadeTo('medium', 0.7);
   });
-
-  // $('#header, #tagline-container').hide();
-  // $('#left-overlay').mouseenter(function(){
-  //   $(this).fadeOut('fast', function(){
-  //     $('#header, #tagline-container').fadeIn('slow');
-  //   });
-  // });
-  // $('.left-screen').mouseleave(function(){
-  //   $('#header, #tagline-container').fadeOut('fast', function(){
-  //     $('#left-overlay').fadeIn('slow');
-  //   });
-  //   $('#header, #tagline-container').hide();
-  // });
 });
