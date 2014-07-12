@@ -8,6 +8,31 @@
   <br>
 
   <div class="form-group">
+    <%= f.label :tagline, class: "col-md-2 control-label header" %>
+    <div class="col-md-9">
+      <%= f.text_field :tagline, class: "form-control" %>
+      <p>Yourself in a few words.</p>
+    </div>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= f.label :twitter, class: "col-md-2 control-label header" %>
+    <div class="col-md-9">
+      <%= f.text_field :twitter, class: "form-control", placeholder: '@example' %>
+    </div>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= f.label :github, class: "col-md-2 control-label header" %>
+    <div class="col-md-9">
+      <%= f.text_field :github, class: "form-control" %>
+    </div>
+  </div>
+  <br>
+
+  <div class="form-group">
     <%= f.label :company_name, class: "col-md-2 control-label header" %>
     <div class="col-md-9">
       <%= f.text_field :company_name, class: "form-control" %>
@@ -25,7 +50,7 @@
   </div>
   <br>
 
-  <p>zētō helps launchers connect with one another via email and is most effective when all launchers provide their emails. However, if you wish to not be contacted but still use zētō's services, please uncheck the box below.</p>
+  <p>zētō helps launchers connect with one another primarily through email and is most effective when all launchers provide their emails. However, if you wish to not be contacted but still use zētō's services, please uncheck the box below.</p>
   <div class="form-group">
     <%= f.label 'Confirmation', class: "col-md-2 control-label header" %>
     <div class="col-md-1">

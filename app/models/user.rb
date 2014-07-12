@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :oauth_token, presence: true
   validates :oauth_expires_at, presence: true
+  validates :tagline, length: {maximum: 160}
 
   has_many :contact_requests
 
@@ -25,12 +26,4 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
-
-  # def self.search(search)
-  #   if search
-  #     all.near(search, 20)
-  #   else
-  #     scoped
-  #   end
-  # end
 end

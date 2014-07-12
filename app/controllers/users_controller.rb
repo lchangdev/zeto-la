@@ -35,6 +35,9 @@ class UsersController < ApplicationController
             email: user.email,
             image: user.image,
             id: user.id,
+            tagline: user.tagline,
+            twitter: user.twitter,
+            github: user.github,
             :'marker-color' => '#65C6BB',
             :'marker-symbol' => 'circle',
             :'marker-size' => 'medium'
@@ -96,7 +99,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:address, :cohort, :company_name, :confirmation)
+    params.require(:user).permit(:address, :tagline, :twitter, :github, :company_name, :cohort, :confirmation)
   end
 
   def sort_column

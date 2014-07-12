@@ -1,18 +1,18 @@
 $(document).ready(function() {
-  // create map
+
   var map = L.mapbox.map('map', 'lchangdev.ij5mliof', { zoomControl: false }).setView([42.353, -71.072], 15);
 
-  // parse user data
+
   var data = $.parseJSON($.ajax({
     url:  '/users.json',
     dataType: "json",
     async: false
   }).responseText);
 
-  // include user data to map
+
   var featureLayer = L.mapbox.featureLayer(data).addTo(map)
 
-  // create markers
+
   featureLayer.eachLayer(function(data) {
     var marker;
     var properties;
@@ -48,13 +48,10 @@ $(document).ready(function() {
   //   map.panTo(data.layer.getLatLng());
   // });
 
-  // store search parameters
   var search_params = getSearchQuery("search");
 
-  // initiate geocoder map
   var geocoder = L.mapbox.geocoder('lchangdev.ij5mliof')
 
-  // convert search params
   function getSearchQuery(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split("&");
@@ -69,7 +66,6 @@ $(document).ready(function() {
     }
   }
 
-  // move map to search parameters
   function searchMap(err, data) {
     if (data.lbounds) {
         map.fitBounds(data.lbounds);
@@ -86,12 +82,9 @@ $(document).ready(function() {
   //   }
   // })
 
-  // disable scroll zoom
   map.scrollWheelZoom.disable();
 
-  // move zoom controls to bottom right
   new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
-  // user search query
   geocoder.query(search_params, searchMap);
 });
