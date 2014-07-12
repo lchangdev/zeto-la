@@ -70,8 +70,13 @@ class UsersController < ApplicationController
       flash[:notice] = "Successfully updated your information."
       redirect_to users_path
     else
-      flash[:notice] = "Did not save. Please try again."
-      render :new
+      if @user.tagline.length > 160
+        flash[:notice] = "Did not save. Please keep taglines under 160 characters."
+        redirect_to users_path
+      else
+        flash[:notice] = "Did not save. Please try again."
+        redirect_to users_path
+      end
     end
   end
 

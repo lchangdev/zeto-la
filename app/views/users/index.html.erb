@@ -94,38 +94,37 @@
           <h4 class="modal-title" id="showModalLabel"><%= user.name %></h4>
         </div>
         <div class="modal-body user-details-container">
-
-            <%= image_tag(user.image, class: "img-circle portrait") %>
-            <p>
-              <%= user.twitter %>
-              <% if user.twitter.present? %> | <% end %>
-              <% if user.github.present? %>
-                <a href="<%= user.github %>">github</a> |
+          <%= image_tag(user.image, class: "img-circle portrait") %>
+          <p>
+            <%= user.twitter %>
+            <% if user.twitter.present? %> | <% end %>
+            <% if user.github.present? %>
+              <a href="<%= user.github %>">github</a> |
+            <% end %>
+            <% if user.confirmation %>
+              <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>
+                <%= image_tag('email.png', class: 'email-image') %>
               <% end %>
-              <% if user.confirmation %>
-                <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>
-                  <%= image_tag('email.png', class: 'email-image') %>
-                <% end %>
-              <% end %>
-            </p>
-            <table class="table">
-              <% if user.tagline.present? %>
-                <tr>
-                  <td><%= user.tagline %></td>
-                </tr>
-              <% end %>
+            <% end %>
+          </p>
+          <table class="table">
+            <% if user.tagline.present? %>
               <tr>
-                <td><%= user.address %></td>
+                <td><%= user.tagline %></td>
               </tr>
+            <% end %>
+            <tr>
+              <td><%= image_tag('marker.png', class: 'user-show-marker') %> <%= user.address %></td>
+            </tr>
+            <tr>
+              <td><%= user.cohort %></td>
+            </tr>
+            <% if user.company_name.present? %>
               <tr>
-                <td><%= user.cohort %></td>
+                <td><%= user.company_name %></td>
               </tr>
-              <% if user.company_name.present? %>
-                <tr>
-                  <td><%= user.company_name %></td>
-                </tr>
-              <% end %>
-            </table>
+            <% end %>
+          </table>
         </div>
       </div>
     </div>
