@@ -99,7 +99,7 @@
             <%= user.twitter %>
             <% if user.twitter.present? %> | <% end %>
             <% if user.github.present? %>
-              <a href="<%= user.github %>">github</a> |
+              <a href="<%= user.github %>" target="_blank">github</a> |
             <% end %>
             <% if user.confirmation %>
               <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>
