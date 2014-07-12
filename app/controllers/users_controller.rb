@@ -38,7 +38,7 @@ class UsersController < ApplicationController
             tagline: user.tagline,
             twitter: user.twitter,
             github: user.github,
-            :'marker-color' => '#65C6BB',
+            :'marker-color' => '#E08283',
             :'marker-symbol' => 'circle',
             :'marker-size' => 'medium'
           }
