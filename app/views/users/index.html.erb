@@ -1,4 +1,5 @@
 <div class="index-container row">
+
   <div class="collapse-trigger-container col-md-offset-11">
     <button type="button" class="btn" id="collapse-trigger" data-toggle="collapse" data-target="#launchers" data-text-swap="expand">
       collapse
@@ -28,6 +29,19 @@
         </tr>
       </table>
     </div>
+
+    <!-- UNDER CONSTRUCTION -->
+
+    <div class="col-md-12" id="page-tabs-container">
+      <table class="table">
+        <tr>
+          <td><a href="#" id="users-btn">Launchers</a></td>
+          <td><a href="#" id="events-btn">Events</a></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- UNDER CONSTRUCTION -->
 
     <div class="col-md-12" id="sort-columns">
       <table class="table">
@@ -66,6 +80,20 @@
         <% end %>
       </ol>
     </div>
+
+    <!-- UNDER CONSTRUCTION -->
+
+    <div class="col-md-12" id="events-container">
+      <ol class="list-group">
+        <li class="list-group-item col-md-12">event 1</li>
+        <li class="list-group-item col-md-12">event 2</li>
+        <li class="list-group-item col-md-12">event 3</li>
+      </ol>
+    </div>
+
+    <!-- UNDER CONSTRUCTION -->
+
+
     <div class="credits-container col-md-12" >
       <p class="credits">Lawrence Chang production</p>
     </div>
@@ -86,48 +114,48 @@
   </div>
 
   <% @users.each do |user| %>
-  <div class="modal fade" id="showModal<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="showModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title" id="showModalLabel"><%= user.name %></h4>
-        </div>
-        <div class="modal-body user-details-container">
-          <%= image_tag(user.image, class: "img-circle portrait") %>
-          <p>
-            <%= user.twitter %>
-            <% if user.twitter.present? %> | <% end %>
-            <% if user.github.present? %>
-              <a href="<%= user.github %>" target="_blank">github</a> |
-            <% end %>
-            <% if user.confirmation %>
-              <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>
-                <%= image_tag('email.png', class: 'email-image') %>
+    <div class="modal fade" id="showModal<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="showModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="showModalLabel"><%= user.name %></h4>
+          </div>
+          <div class="modal-body user-details-container">
+            <%= image_tag(user.image, class: "img-circle portrait") %>
+            <p>
+              <%= user.twitter %>
+              <% if user.twitter.present? %> | <% end %>
+              <% if user.github.present? %>
+                <a href="<%= user.github %>" target="_blank">github</a> |
               <% end %>
-            <% end %>
-          </p>
-          <table class="table">
-            <% if user.tagline.present? %>
+              <% if user.confirmation %>
+                <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>
+                  <%= image_tag('email.png', class: 'email-image') %>
+                <% end %>
+              <% end %>
+            </p>
+            <table class="table">
+              <% if user.tagline.present? %>
+                <tr>
+                  <td><%= user.tagline %></td>
+                </tr>
+              <% end %>
               <tr>
-                <td><%= user.tagline %></td>
+                <td><%= image_tag('marker.png', class: 'user-show-marker') %> <%= user.address %></td>
               </tr>
-            <% end %>
-            <tr>
-              <td><%= image_tag('marker.png', class: 'user-show-marker') %> <%= user.address %></td>
-            </tr>
-            <tr>
-              <td><%= user.cohort %></td>
-            </tr>
-            <% if user.company_name.present? %>
               <tr>
-                <td><%= user.company_name %></td>
+                <td><%= user.cohort %></td>
               </tr>
-            <% end %>
-          </table>
+              <% if user.company_name.present? %>
+                <tr>
+                  <td><%= user.company_name %></td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   <% end %>
 </div>
