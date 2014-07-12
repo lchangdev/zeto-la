@@ -207,8 +207,8 @@ a:hover {
 /* ----------- user#show -----------  */
 
 .portrait {
-  height: 175px;
-  width: 175px;
+  min-height: 175px;
+  max-width: 175px;
 }
 
 .user-details-container {
@@ -239,25 +239,7 @@ a:hover {
 
 /* ----------- media queries ----------- */
 
-@media (min-width: 768px) {
-  .launch-info-container {
-    background-size: 100%;
-    position: static;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-}
-
-@media (max-width: 992px) {
-  #map {
-    height: 60%;
-  }
-
-  .collapse-trigger-container {
-    display: none;
-  }
-}
-
+/* ----- mobile ----- */
 @media (max-width: 768px) {
   #map {
     height: 60%;
@@ -270,8 +252,38 @@ a:hover {
   .collapse-trigger-container {
     display: none;
   }
+
+  .username-container {
+    display: inline;
+  }
+
+  .email-link-container {
+    display: inline;
+    float: right;
+  }
 }
 
+/* ----- tablet ----- */
+@media (max-width: 992px) {
+  #map {
+    height: 60%;
+  }
+
+  .collapse-trigger-container {
+    display: none;
+  }
+
+  .username-container {
+    display: inline;
+  }
+
+  .email-link-container {
+    display: inline;
+    float: right;
+  }
+}
+
+/* ----- desktop ----- */
 @media (min-width: 992px) {
   .launch-info-container {
     height: 100%;

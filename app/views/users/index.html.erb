@@ -49,13 +49,13 @@
       <ol class="list-group">
         <% @users.each do |user| %>
           <li class="user-info list-group-item col-md-12">
-            <div class="col-md-10">
+            <div class="col-md-10 username-container">
               <img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image">
               <a href="#">
                 <span><%= user.name %></span>
               </a>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-1 email-link-container">
               <% if user.confirmation %>
                 <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>
                   <%= image_tag('email.png', class: 'email-image') %>
