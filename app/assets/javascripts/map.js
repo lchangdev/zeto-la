@@ -34,15 +34,19 @@ $(document).ready(function() {
 
   $('li a').click(function() {
     var current = $(this);
-    var currentlyClickedName = current.find('span').text();
+    var currentlyClicked = current.find('span').text();
 
     featureLayer.eachLayer(function(marker) {
       var id;
-      if (marker.feature.properties.name === currentlyClickedName) {
+      if (marker.feature.properties.name === currentlyClicked) {
         id = marker._leaflet_id;
         map.panTo(featureLayer._layers[id]._latlng);
         return featureLayer._layers[id].openPopup(marker);
-      }
+      } else if (marker.feature.properties.title === currentlyClicked) {
+        id = marker._leaflet_id;
+        map.panTo(featureLayer._layers[id]._latlng);
+        return featureLayer._layers[id].openPopup(marker);
+      };
     });
   });
 

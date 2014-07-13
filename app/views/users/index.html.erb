@@ -91,7 +91,9 @@
       <ol class="list-group">
         <% @posts.each do |post| %>
         <li class="list-group-item col-md-12">
-          <%= post.title %>
+          <a href="#">
+            <span><%= post.title %></span>
+          </a>
           <%= post.date %>
           <%= post.user.name %>
           <% if post.user_id == current_user.id %>
