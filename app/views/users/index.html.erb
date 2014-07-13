@@ -24,8 +24,6 @@
       <% end %>
     </div>
 
-    <!-- UNDER CONSTRUCTION -->
-
     <div class="col-md-12" id="page-tabs-container">
       <table class="table">
         <tr>
@@ -35,8 +33,6 @@
       </table>
     </div>
 
-    <!-- END UNDER CONSTRUCTION -->
-
     <div class="launch-info-options col-md-12">
       <table class="table">
         <tr>
@@ -45,8 +41,6 @@
       </table>
     </div>
 
-    <!-- UNDER CONSTRUCTION -->
-
     <div class="new-post-link-container col-md-12">
       <table class="table">
         <tr>
@@ -54,8 +48,6 @@
         </tr>
       </table>
     </div>
-
-    <!-- END UNDER CONSTRUCTION -->
 
     <div class="col-md-12" id="sort-columns">
       <table class="table">
@@ -95,18 +87,20 @@
       </ol>
     </div>
 
-    <!-- UNDER CONSTRUCTION -->
-
     <div class="col-md-12" id="posts-container">
       <ol class="list-group">
-        <li class="list-group-item col-md-12">post 1</li>
-        <li class="list-group-item col-md-12">post 2</li>
-        <li class="list-group-item col-md-12">post 3</li>
+        <% @posts.each do |post| %>
+        <li class="list-group-item col-md-12">
+          <%= post.title %>
+          <%= post.date %>
+          <%= post.user.name %>
+          <% if post.user_id == current_user.id %>
+            <%= link_to 'delete post', post, method: :delete, class: 'delete-link' %>
+          <% end %>
+        </li>
+        <% end %>
       </ol>
     </div>
-
-    <!-- UNDER CONSTRUCTION -->
-
 
     <div class="credits-container col-md-12" >
       <p class="credits">Lawrence Chang production</p>

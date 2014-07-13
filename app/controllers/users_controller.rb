@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     authenticate!
-
+    @posts = Post.all
     if !params[:search] || params[:search].empty?
       @users = User.all.order(sort_column + " " + sort_direction)
     else
@@ -39,6 +39,29 @@ class UsersController < ApplicationController
             twitter: user.twitter,
             github: user.github,
             :'marker-color' => '#E08283',
+            :'marker-symbol' => 'circle',
+            :'marker-size' => 'medium'
+          }
+        }
+      end
+
+      @posts.each do |post|
+        @geojson << {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [post.longitude, post.latitude]
+          },
+          properties: {
+            id: post.id,
+            title: post.title,
+            description: post.description,
+            address: post.address,
+            date: post.date,
+            time: post.time,
+            role: post.role,
+            updated_at: post.updated_at,
+            :'marker-color' => '#E87E04',
             :'marker-symbol' => 'circle',
             :'marker-size' => 'medium'
           }

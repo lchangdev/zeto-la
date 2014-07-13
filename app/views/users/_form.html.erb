@@ -3,9 +3,9 @@
     <%= f.label :address, class: "col-md-2 control-label header" %>
     <div class="col-md-9">
       <%= f.text_field :address, required: true, class: "form-control" %>
+      <p>Preferably work address.</p>
     </div>
   </div>
-  <br>
 
   <div class="form-group">
     <%= f.label :tagline, class: "col-md-2 control-label header" %>
@@ -14,7 +14,6 @@
       <p>Yourself in a few words.</p>
     </div>
   </div>
-  <br>
 
   <div class="form-group">
     <%= f.label :twitter, class: "col-md-2 control-label header" %>
@@ -22,7 +21,6 @@
       <%= f.text_field :twitter, class: "form-control", placeholder: '@example' %>
     </div>
   </div>
-  <br>
 
   <div class="form-group">
     <%= f.label :github, class: "col-md-2 control-label header" %>
@@ -30,7 +28,6 @@
       <%= f.text_field :github, class: "form-control", placeholder: 'http://github.com/username' %>
     </div>
   </div>
-  <br>
 
   <div class="form-group">
     <%= f.label :company_name, class: "col-md-2 control-label header" %>
@@ -39,7 +36,6 @@
       <p>*If present launcher or not currently employed, please use Launch Academy.</p>
     </div>
   </div>
-  <br>
 
   <div class="form-group">
     <%= f.label :cohort, class: "col-md-2 control-label header" %>
@@ -48,7 +44,6 @@
         class: "dropdown" %>
     </div>
   </div>
-  <br>
 
   <p>zētō helps launchers connect with one another primarily through email and is most effective when all launchers provide their emails. However, if you wish to not be contacted but still use zētō's services, please uncheck the box below.</p>
   <div class="form-group">
@@ -57,11 +52,9 @@
       <%= f.check_box :confirmation, class: "form-control" %>
     </div>
   </div>
-  <br>
 
   <div class="modal-footer">
     <%= f.submit 'submit', class: 'btn btn-default' %>
-  <% end %>
+<% end %>
     <%= link_to 'delete account', current_user, method: :delete, class: 'delete-link' %>
   </div>
-

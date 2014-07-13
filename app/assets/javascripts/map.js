@@ -17,7 +17,12 @@ $(document).ready(function() {
 
     marker = data;
     properties = marker.feature.properties;
-    popupContent = '<div class="popup">' + '<p>' + properties.name + '</p>' + '<a href="#showModal' + properties.id + '" role="button" data-toggle="modal" rel="tooltip">' + 'details' + '</a>' + '</div>';
+
+    if (properties.role === "Job Lead" || properties.role === "Event Post") {
+      popupContent = '<div class="popup">' + '<p>' + properties.title + '</p>' + '</div>';
+    } else {
+      popupContent = '<div class="popup">' + '<p>' + properties.name + '</p>' + '<a href="#showModal' + properties.id + '" role="button" data-toggle="modal" rel="tooltip">' + 'details' + '</a>' + '</div>';
+    };
 
     marker.bindPopup(popupContent, {
       closeButton: false,
