@@ -1,15 +1,15 @@
 $(document).ready(function(){
-  $('#events-container').hide();
+  $('#posts-container').hide();
 
-  $('#events-btn').on('click', function(e){
-    $('#events-container').show();
+  $('#posts-btn').on('click', function(e){
+    $('#posts-container').show();
     $('.launch-info-users').hide();
     e.preventDefault();
   })
 
   $('#users-btn').on('click', function(e){
     $('.launch-info-users').show();
-    $('#events-container').hide();
+    $('#posts-container').hide();
     e.preventDefault();
   })
 

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :tagline, length: {maximum: 160}
 
   has_many :contact_requests
+  has_many :posts
 
   geocoded_by :address
 

@@ -38,6 +38,7 @@ $(document).ready(function() {
       var id;
       if (marker.feature.properties.name === currentlyClickedName) {
         id = marker._leaflet_id;
+        map.panTo(featureLayer._layers[id]._latlng);
         return featureLayer._layers[id].openPopup(marker);
       }
     });
