@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_user_column, :sort_direction, :sort_post_column
 
   def index
     authenticate!
+
     @posts = Post.all
     if !params[:search] || params[:search].empty?
-      @users = User.all.order(sort_column + " " + sort_direction)
+      @users = User.all.order(sort_user_column + " " + sort_direction)
     else
-      @users = User.all.order(sort_column + " " + sort_direction).near(params[:search], 20)
+      @users = User.all.order(sort_user_column + " " + sort_direction).near(params[:search], 20)
       count = @users.to_a.count
       if count == 1
         word = ['is', 'Launcher']
@@ -130,9 +131,14 @@ class UsersController < ApplicationController
     params.require(:user).permit(:address, :tagline, :twitter, :github, :company_name, :cohort, :confirmation)
   end
 
-  def sort_column
+  def sort_user_column
     # need to make more specific for security
     User.column_names.include?(params[:sort]) ? params[:sort] : 'name'
+  end
+
+  def sort_post_column
+    # need to make more specific for security
+    Post.column_names.include?(params[:sort]) ? params[:sort] : 'title'
   end
 
   def sort_direction

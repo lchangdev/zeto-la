@@ -53,8 +53,17 @@
       <table class="table">
         <tr>
           <td>Sort By</td>
-          <td><%= sortable('name') %></td>
-          <td><%= sortable('cohort') %></td>
+          <td><%= sort_users('name') %></td>
+          <td><%= sort_users('cohort') %></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-md-12" id="sort-posts">
+      <table class="table">
+        <tr>
+          <td>Sort By</td>
+          <td><%= sort_posts('title') %></td>
         </tr>
       </table>
     </div>
@@ -92,7 +101,7 @@
         <% @posts.each do |post| %>
         <li class="list-group-item col-md-12">
           <a href="#">
-            <span><%= post.title %></span>
+            <span><%= post.title.truncate(10) %></span>
           </a>
           <%= post.date %>
           <%= post.user.name %>
