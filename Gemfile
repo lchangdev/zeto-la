@@ -50,4 +50,6 @@ end
 gem 'omniauth-facebook'
 gem 'geocoder'
 gem 'mapbox-rails'
+gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-timepicker-rails-addon'
 gem 'rails_12factor', group: :production

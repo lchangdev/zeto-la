@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712224239) do
+ActiveRecord::Schema.define(version: 20140713192138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,16 +39,16 @@ ActiveRecord::Schema.define(version: 20140712224239) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "provider",                                    null: false
-    t.string   "uid",                                         null: false
-    t.string   "name",                                        null: false
-    t.string   "image",                                       null: false
-    t.string   "email",                                       null: false
-    t.string   "oauth_token",                                 null: false
-    t.datetime "oauth_expires_at",                            null: false
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.string   "provider",                                                                         null: false
+    t.string   "uid",                                                                              null: false
+    t.string   "name",                                                                             null: false
+    t.string   "image",                                                                            null: false
+    t.string   "email",                                                                            null: false
+    t.string   "oauth_token",                                                                      null: false
+    t.datetime "oauth_expires_at",                                                                 null: false
+    t.string   "address",                      default: "33 Harrison Ave. #501, Boston MA. 02111"
+    t.float    "latitude",                     default: 42.3516303
+    t.float    "longitude",                    default: -71.0614178
     t.string   "cohort"
     t.string   "company_name"
     t.datetime "created_at"

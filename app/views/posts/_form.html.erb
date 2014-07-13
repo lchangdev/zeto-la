@@ -15,13 +15,6 @@
   </div>
   <br>
 
-  <div class="form-group">
-    <%= f.label :date, class: "col-md-2 control-label header" %>
-    <div class="col-md-9">
-      <%= f.date_select (:date, order: [:month, :day, :year]), class: "form-control" %>
-    </div>
-  </div>
-  <br>
 
   <div class="form-group">
     <%= f.label :address, class: "col-md-2 control-label header" %>
@@ -33,6 +26,19 @@
 
 <!-- UNDER CONSTRUCTION -->
 
+  <div class="form-group">
+    <%= f.label :date, class: "col-md-2 control-label header" %>
+    <div class="col-md-2">
+      <%= f.text_field :date, class: "form-control input-group date" %><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :time, class: "col-md-2 control-label header" %>
+    <div class="col-md-2 input-append bootstrap-timepicker">
+      <%= f.text_field :time, class: "form-control timepicker input-small" %>
+    </div>
+  </div>
   <!-- need to include date and time of event -->
 
 <!-- UNDER CONSTRUCTION -->
@@ -48,4 +54,5 @@
   <div class="col-md-5">
     <%= f.submit 'submit', class: 'btn btn-default' %>
   </div>
+
 <% end %>

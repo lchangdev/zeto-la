@@ -35,9 +35,7 @@ $(document).ready(function() {
       var id;
       if (marker.feature.properties.name === currentlyClickedName) {
         id = marker._leaflet_id;
-        debugger
         map.panTo(featureLayer._layers[id]._latlng);
-        debugger
         return featureLayer._layers[id].openPopup(marker);
       }
     });
@@ -56,7 +54,6 @@ $(document).ready(function() {
       if (pair[0] == variable) {
         var unfilteredParams = pair[1];
         var filteredParams = unfilteredParams.replace(/([~!@#$%^&*()_+=`{}\[\]\|\\:;'<>,.\/? ])+/g, " ").replace("2C", "");
-        debugger
         return filteredParams
       }
     }

@@ -15,4 +15,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require mapbox.js
+//= require bootstrap-datepicker
+//= require bootstrap-timepicker
 //= require_tree .
