@@ -19,7 +19,7 @@ $(document).ready(function() {
     properties = marker.feature.properties;
 
     if (properties.role === "Job Lead" || properties.role === "Event Post") {
-      popupContent = '<div class="popup">' + '<p>' + properties.title + '</p>' + '</div>';
+      popupContent = '<div class="popup">' + '<p>' + properties.title + '</p>' + '<a href="#postModal' + properties.id + '" role="button" data-toggle="modal" rel="tooltip">' + 'details' + '</a>' + '</div>';
     } else {
       popupContent = '<div class="popup">' + '<p>' + properties.name + '</p>' + '<a href="#showModal' + properties.id + '" role="button" data-toggle="modal" rel="tooltip">' + 'details' + '</a>' + '</div>';
     };
