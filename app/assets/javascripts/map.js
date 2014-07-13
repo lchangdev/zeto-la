@@ -2,16 +2,13 @@ $(document).ready(function() {
 
   var map = L.mapbox.map('map', 'lchangdev.ij5mliof', { zoomControl: false }).setView([42.366, -71.109], 13);
 
-
   var data = $.parseJSON($.ajax({
     url:  '/users.json',
     dataType: "json",
     async: false
   }).responseText);
 
-
   var featureLayer = L.mapbox.featureLayer(data).addTo(map)
-
 
   featureLayer.eachLayer(function(data) {
     var marker;
@@ -38,16 +35,13 @@ $(document).ready(function() {
       var id;
       if (marker.feature.properties.name === currentlyClickedName) {
         id = marker._leaflet_id;
+        debugger
         map.panTo(featureLayer._layers[id]._latlng);
+        debugger
         return featureLayer._layers[id].openPopup(marker);
       }
     });
   });
-
-  // move map to middle on marker click
-  // featureLayer.on('click', function(data) {
-  //   map.panTo(data.layer.getLatLng());
-  // });
 
   var search_params = getSearchQuery("search");
 
@@ -60,8 +54,9 @@ $(document).ready(function() {
       var pair = vars[i].split("=");
 
       if (pair[0] == variable) {
-        var unfilteredParams = pair[1]
-        var filteredParams = unfilteredParams.replace(/([~!@#$%^&*()_+=`{}\[\]\|\\:;'<>,.\/? ])+/g, " ").replace("2C", "")
+        var unfilteredParams = pair[1];
+        var filteredParams = unfilteredParams.replace(/([~!@#$%^&*()_+=`{}\[\]\|\\:;'<>,.\/? ])+/g, " ").replace("2C", "");
+        debugger
         return filteredParams
       }
     }
