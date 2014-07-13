@@ -5,8 +5,10 @@
       collapse
     </button>
   </div>
-  <div id="map" class="col-md-12 dark">
-  </div>
+
+<!--   <div id="map" class="col-md-12 dark"> -->
+<!--   </div> -->
+
   <div class="launch-info-container col-md-4 collapse in" id="launchers">
     <div class="launch-info-header col-md-12">
       <span class="site-name">zētō</span>
@@ -22,14 +24,6 @@
       <% end %>
     </div>
 
-    <div class="launch-info-options col-md-12">
-      <table class="table">
-        <tr>
-          <td><a href="#editModal" role="button" data-toggle="modal" rel="tooltip">Edit</a></td>
-        </tr>
-      </table>
-    </div>
-
     <!-- UNDER CONSTRUCTION -->
 
     <div class="col-md-12" id="page-tabs-container">
@@ -41,7 +35,27 @@
       </table>
     </div>
 
+    <!-- END UNDER CONSTRUCTION -->
+
+    <div class="launch-info-options col-md-12">
+      <table class="table">
+        <tr>
+          <td><a href="#editModal" role="button" data-toggle="modal" rel="tooltip">Edit</a></td>
+        </tr>
+      </table>
+    </div>
+
     <!-- UNDER CONSTRUCTION -->
+
+    <div class="new-post-link-container col-md-12">
+      <table class="table">
+        <tr>
+          <td><%= link_to 'Create New Post', new_post_path %></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- END UNDER CONSTRUCTION -->
 
     <div class="col-md-12" id="sort-columns">
       <table class="table">

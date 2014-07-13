@@ -16,6 +16,14 @@
   <br>
 
   <div class="form-group">
+    <%= f.label :date, class: "col-md-2 control-label header" %>
+    <div class="col-md-9">
+      <%= f.date_select (:date, order: [:month, :day, :year]), class: "form-control" %>
+    </div>
+  </div>
+  <br>
+
+  <div class="form-group">
     <%= f.label :address, class: "col-md-2 control-label header" %>
     <div class="col-md-9">
       <%= f.text_field :address, class: "form-control" %>

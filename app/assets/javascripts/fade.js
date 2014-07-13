@@ -1,15 +1,15 @@
 $(document).ready(function(){
-  $('#posts-container').hide();
+  $('#posts-container, .new-post-link-container').hide();
 
   $('#posts-btn').on('click', function(e){
-    $('#posts-container').show();
-    $('.launch-info-users').hide();
+    $('#posts-container, .new-post-link-container').show();
+    $('.launch-info-users, .launch-info-options, .launch-info-search, #sort-columns').hide();
     e.preventDefault();
   })
 
   $('#users-btn').on('click', function(e){
-    $('.launch-info-users').show();
-    $('#posts-container').hide();
+    $('.launch-info-users, .launch-info-options, .launch-info-search, #sort-columns').show();
+    $('#posts-container, .new-post-link-container').hide();
     e.preventDefault();
   })
 
