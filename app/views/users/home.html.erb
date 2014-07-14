@@ -23,7 +23,7 @@
         <%= link_to 'Enter', users_path, class: "enter-btn" %>
       <% end %>
     <% else %>
-      <p>Please sign in first.</p>
+      <p>Please <%= link_to "sign in", "/auth/facebook", id: "sign_in", class: 'login-link' %> first.</p>
     <% end %>
     <div id="flash-message" class="launch-info-alert col-md-12">
       <% if flash.any? %>
