@@ -30,15 +30,14 @@ $(document).ready(function(){
   });
 
   var randExperienceEngineer = randomColor({hue: 'orange'});
-  var randLaunchStaff = randomColor({hue: 'green'});
   var randWinter2013 = randomColor({hue: 'blue'});
   var randSpring2014 = randomColor({hue: 'pink'});
   var randSummer2014 = randomColor({hue: 'monochrome'});
-  var randFall2014 = randomColor({hue: 'red'});
+  var randFall2014 = randomColor({hue: 'green'});
   var randWinter2014 = randomColor({hue: 'purple'});
 
   $('.experienceengineer').css("color", randExperienceEngineer);
-  $('.launchstaff').css("color", randLaunchStaff);
+  $('.launchstaff').css("color", randExperienceEngineer);
   $('.winter2013').css("color", randWinter2013);
   $('.spring2014').css("color", randSpring2014);
   $('.summer2014').css("color", randSummer2014);
