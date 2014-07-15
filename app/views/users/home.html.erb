@@ -4,7 +4,7 @@
     <h3 class="header tag-line">connect with <span class="rotate">past, present, future</span> launchers.</h3>
     <br>
     <% if signed_in? %>
-      <% if !@user.address.present? %>
+      <% if !@user.cohort.present? %>
         <button class="btn btn-primary initial-enter-btn" data-toggle="modal" data-target="#myModal">Enter</button>
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
