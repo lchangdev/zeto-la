@@ -85,7 +85,9 @@
               <div class="col-xs-7 username-container">
                 <p>
                   <a href="#"><span class="username" id="username"><%= user.name %></a></span>
-                  <br><span class="<%=concat_cohort(user.cohort) %>"><%= user.cohort %></span>
+                  <% if user.cohort.present? %>
+                    <br><span class="<%=concat_cohort(user.cohort) %>"><%= user.cohort %></span>
+                  <% end %>
                 </p>
               </div>
               <div class="col-xs-1 email-link-container">
