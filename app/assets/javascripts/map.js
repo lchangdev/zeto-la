@@ -34,7 +34,7 @@ $(document).ready(function() {
 
   $('li a').click(function() {
     var current = $(this);
-    var currentlyClicked = current.find('span').text();
+    var currentlyClicked = current.find('#username').text();
 
     featureLayer.eachLayer(function(marker) {
       var id;

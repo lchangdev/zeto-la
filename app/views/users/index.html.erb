@@ -77,19 +77,24 @@
     <div class="launch-info-users col-md-12">
       <ol class="list-group">
         <% @users.each do |user| %>
-          <li class="user-info list-group-item col-md-12">
-            <div class="col-md-10 username-container">
-              <img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image">
-              <a href="#">
-                <span><%= user.name %></span>
-              </a>
-            </div>
-            <div class="col-md-1 email-link-container">
-              <% if user.confirmation %>
-                <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>
-                  <%= image_tag('email.png', class: 'email-image') %>
+          <li class="user-info list-group-item">
+            <div class="row">
+              <div class="col-xs-3 avatar-container">
+                <img src="<%= user.image %>" class="img-circle avatar" alt="Responsive image">
+              </div>
+              <div class="col-xs-7 username-container">
+                <p>
+                  <a href="#"><span class="username" id="username"><%= user.name %></a></span>
+                  <br><span class="<%=concat_cohort(user.cohort) %>"><%= user.cohort %></span>
+                </p>
+              </div>
+              <div class="col-xs-1 email-link-container">
+                <% if user.confirmation %>
+                  <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>
+                    <%= image_tag('email.png', class: 'email-image') %>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
             </div>
           </li>
         <% end %>
@@ -97,20 +102,7 @@
     </div>
 
     <div class="col-md-12" id="posts-container">
-      <ol class="list-group">
-        <% @posts.each do |post| %>
-        <li class="list-group-item col-md-12">
-          <a href="#">
-            <span><%= post.title.truncate(10) %></span>
-          </a>
-          <%= post.date %>
-          <%= post.user.name %>
-          <% if post.user_id == current_user.id %>
-            <%= link_to 'delete post', post, method: :delete, class: 'delete-link' %>
-          <% end %>
-        </li>
-        <% end %>
-      </ol>
+      <%= render partial: "posts" %>
     </div>
 
     <div class="credits-container col-md-12" >

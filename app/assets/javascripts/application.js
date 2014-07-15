@@ -17,4 +17,6 @@
 //= require mapbox.js
 //= require bootstrap-datepicker
 //= require bootstrap-timepicker
+//= require jquery.simple-text-rotator
+//= require randomcolor
 //= require_tree .

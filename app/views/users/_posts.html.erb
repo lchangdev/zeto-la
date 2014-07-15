@@ -1,0 +1,14 @@
+<ol class="list-group">
+  <% @posts.each do |post| %>
+  <li class="list-group-item col-md-12">
+    <a href="#">
+      <span><%= post.title.truncate(10) %></span>
+    </a>
+    <%= post.date %>
+    <%= post.user.name %>
+    <% if post.user_id == current_user.id %>
+      <%= link_to 'delete post', post, method: :delete, class: 'delete-link' %>
+    <% end %>
+  </li>
+  <% end %>
+</ol>
