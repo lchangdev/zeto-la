@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :contact_requests
   has_many :posts
+  has_many :members
 
   geocoded_by :address
 

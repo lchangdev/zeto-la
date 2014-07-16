@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :contact_requests, only: [:new, :create]
   end
 
-  resources :posts
+  resources :posts do
+    resources :members
+  end
 
   match '/about', to: 'users#about', via: [:get, :post]
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
