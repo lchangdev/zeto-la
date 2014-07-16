@@ -24,15 +24,6 @@
       <% end %>
     </div>
 
-<!--     <div class="col-md-12" id="page-tabs-container">
-      <table class="table">
-        <tr>
-          <td><a href="#" id="users-btn">Launchers</a></td>
-          <td><a href="#" id="posts-btn">Posts</a></td>
-        </tr>
-      </table>
-    </div> -->
-
     <div class="launch-info-options col-md-12">
       <table class="table">
         <tr>
@@ -49,21 +40,21 @@
       </table>
     </div>
 
+    <div class="col-md-12" id="page-tabs-container">
+      <table class="table">
+        <tr>
+          <td><a href="#" id="users-btn">Launchers</a></td>
+          <td><a href="#" id="posts-btn">Posts</a></td>
+        </tr>
+      </table>
+    </div>
+
     <div class="col-md-12" id="sort-columns">
       <table class="table">
         <tr>
           <td>Sort By</td>
           <td><%= sort_users('name') %></td>
           <td><%= sort_users('cohort') %></td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="col-md-12" id="sort-posts">
-      <table class="table">
-        <tr>
-          <td>Sort By</td>
-          <td><%= sort_posts('title') %></td>
         </tr>
       </table>
     </div>
@@ -104,6 +95,7 @@
     </div>
 
     <div class="col-md-12" id="posts-container">
+      <p><%= link_to 'View All Posts', posts_path %></p>
       <%= render partial: "posts" %>
     </div>
 
@@ -180,10 +172,31 @@
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <h4 class="modal-title" id="postModalLabel"><%= post.title %></h4>
           </div>
-          <div class="modal-body">
-            <%= post.description %>
+          <div class="modal-body post-details-container">
+            <% if post.role == "Job Lead" %>
+              <div class="row">
+                <div class="col-xs-6">
+                  <p>Created On: <%= post.created_at.strftime("%m/%d/%Y")  %><br> Last Updated On: <%= post.updated_at.strftime("%m/%d/%Y")  %></p>
+                </div>
+                <div class="col-xs-6" id="post-role">
+                  Post Type: <%= post.role %>
+                </div>
+                <div class="col-xs-12">
+                  <h3>Description:</h3><br>
+                  <%= post.description %>
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <%= post.user.name %>
+            <% if post.user.confirmation %>
+              <%= link_to new_user_contact_request_path(post.user), class: 'email-link' do %>
+                <%= image_tag('email.png', class: 'email-image') %>
+              <% end %>
+            <% end %>
           </div>
         </div>
+            <% end %>
       </div>
     </div>
   <% end %>

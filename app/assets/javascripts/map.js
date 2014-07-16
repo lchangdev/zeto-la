@@ -17,8 +17,7 @@ $(document).ready(function() {
 
     marker = data;
     properties = marker.feature.properties;
-
-    if (properties.role === "Job Lead" || properties.role === "Event Post") {
+    if (properties.role === "Job Lead" || properties.role === "Event") {
       popupContent = '<div class="popup">' + '<p>' + properties.title + '</p>' + '<a href="#postModal' + properties.id + '" role="button" data-toggle="modal" rel="tooltip">' + 'details' + '</a>' + '</div>';
     } else {
       popupContent = '<div class="popup">' + '<p>' + properties.name + '</p>' + '<a href="#showModal' + properties.id + '" role="button" data-toggle="modal" rel="tooltip">' + 'details' + '</a>' + '</div>';
@@ -35,14 +34,15 @@ $(document).ready(function() {
   $('li a').click(function() {
     var current = $(this);
     var currentlyClicked = current.find('#username').text();
-
+    var currentlyClickedPost = current.find('#postname').text();
     featureLayer.eachLayer(function(marker) {
       var id;
       if (marker.feature.properties.name === currentlyClicked) {
         id = marker._leaflet_id;
         map.panTo(featureLayer._layers[id]._latlng);
         return featureLayer._layers[id].openPopup(marker);
-      } else if (marker.feature.properties.title === currentlyClicked) {
+        debugger
+      } else if (marker.feature.properties.title === currentlyClickedPost) {
         id = marker._leaflet_id;
         map.panTo(featureLayer._layers[id]._latlng);
         return featureLayer._layers[id].openPopup(marker);

@@ -3,7 +3,7 @@
     <%= f.label :address, class: "col-md-2 control-label header" %>
     <div class="col-md-9">
       <%= f.text_field :address, required: true, class: "form-control" %>
-      <p>Preferably work address.</p>
+      Preferably work address.
     </div>
   </div>
 
@@ -11,7 +11,7 @@
     <%= f.label :tagline, class: "col-md-2 control-label header" %>
     <div class="col-md-9">
       <%= f.text_field :tagline, class: "form-control" %>
-      <p>Yourself in a few words.</p>
+      Yourself in a few words.
     </div>
   </div>
 
@@ -33,14 +33,14 @@
     <%= f.label :company_name, class: "col-md-2 control-label header" %>
     <div class="col-md-9">
       <%= f.text_field :company_name, class: "form-control" %>
-      <p>*If present launcher or not currently employed, please use Launch Academy.</p>
+      *If present launcher or not currently employed, please use Launch Academy.
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :cohort, class: "col-md-2 control-label header" %>
     <div class="col-md-9 dropdown">
-      <%= f.select :cohort, [['Experience Engineer'], ['Launch Staff'], ['Winter 2013'], ['Spring 2014'], ['Summer 2014'], ['Fall 2014', 'Winter 2014']],
+      <%= f.select :cohort, [['Experience Engineer'], ['Launch Staff'], ['Winter 2013'], ['Spring 2014'], ['Summer 2014'], ['Fall 2014'], ['Winter 2014']],
         class: "dropdown" %>
     </div>
   </div>

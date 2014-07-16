@@ -214,6 +214,33 @@ a {
   height: 100% !important;
 }
 
+/* ----- users#index posts ----- */
+
+.post-info {
+  background-color: white;
+  border-top: 1px solid $main-green;
+  border-bottom: 1px solid $main-green;
+  border-left: none;
+  border-right: none;
+  border-collapse: collapse;
+}
+
+.post-info:last-child {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.post-info:first-child {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+/* ----------- users#index post ----------- */
+
+#post-role {
+  text-align: right;
+}
+
 /* ----------- user#show -----------  */
 
 .portrait {
@@ -245,6 +272,17 @@ a {
 
 .contact-request-container {
   padding-top: 100px;
+}
+
+/* ----------- post#index ----------- */
+
+.all-posts-container {
+  padding-top: 100px;
+}
+
+.all-posts-table tr:first-child td {
+  border-top: none;
+  color: $main-green;
 }
 
 /* ----------- post#new ----------- */

@@ -3,6 +3,7 @@
     <%= f.label :title, class: "col-md-2 control-label header" %>
     <div class="col-md-9">
       <%= f.text_field :title, required: true, class: "form-control" %>
+      Must be 60 characters or less.
     </div>
   </div>
 
@@ -37,7 +38,7 @@
   <div class="form-group">
     <%= f.label :role, class: "col-md-2 control-label header" %>
     <div class="col-md-9 dropdown">
-      <%= f.select :role, [['Job Lead'], ['Event Post']], class: "dropdown" %>
+      <%= f.select :role, [['Job Lead'], ['Event']], class: "dropdown" %>
     </div>
   </div>
 

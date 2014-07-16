@@ -1,21 +1,32 @@
 class UsersController < ApplicationController
-  helper_method :sort_user_column, :sort_direction, :sort_post_column
+  helper_method :sort_user_column, :sort_direction
 
   def index
     authenticate!
 
-    @posts = Post.all
     if !params[:search] || params[:search].empty?
       @users = User.all.order(sort_user_column + " " + sort_direction)
+      @posts = Post.all.order('created_at desc').limit(20)
     else
       @users = User.all.order(sort_user_column + " " + sort_direction).near(params[:search], 20)
-      count = @users.to_a.count
-      if count == 1
-        word = ['is', 'Launcher']
+      @posts = Post.all.order('created_at desc').near(params[:search], 20)
+
+      user_count = @users.to_a.count
+      post_count = @posts.to_a.count
+      if user_count == 1
+        word1 = ['is', 'Launcher']
       else
-        word = ['are', 'Launchers']
+        word1 = ['are', 'Launchers']
       end
-      flash[:notice] = "There #{word.first} #{@users.to_a.count} #{word.last} within 20 miles of #{params[:search]}."
+
+      if post_count == 1
+        word2 = ['is', 'post']
+      else
+        word2 = ['are', 'posts']
+      end
+
+      flash[:notice] = "There #{word1.first} #{user_count} #{word1.last} and \n
+        #{post_count} #{word2.last} within 20 miles of #{params[:search]}."
     end
 
     if signed_in?
@@ -61,7 +72,6 @@ class UsersController < ApplicationController
             date: post.date,
             time: post.time,
             role: post.role,
-            updated_at: post.updated_at,
             :'marker-color' => '#E87E04',
             :'marker-symbol' => 'circle',
             :'marker-size' => 'medium'
@@ -134,11 +144,6 @@ class UsersController < ApplicationController
   def sort_user_column
     # need to make more specific for security
     User.column_names.include?(params[:sort]) ? params[:sort] : 'name'
-  end
-
-  def sort_post_column
-    # need to make more specific for security
-    Post.column_names.include?(params[:sort]) ? params[:sort] : 'title'
   end
 
   def sort_direction

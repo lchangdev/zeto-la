@@ -1,6 +1,11 @@
 <div class="new-post-container row">
   <div class="col-md-12">
-  <h1 class="header">Create new post</h1>
+    <div id="flash-message" class="launch-info-alert col-md-12">
+      <% if flash.any? %>
+        <%= flash[:notice] %>
+      <% end %>
+    </div>
+    <h1 class="header">Create new post</h1>
   </div>
   <div class="col-md-12">
     <%= render partial: "form", locals: {zone: @post} %>

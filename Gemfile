@@ -52,4 +52,5 @@ gem 'geocoder'
 gem 'mapbox-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-timepicker-rails-addon'
+gem 'kaminari'
 gem 'rails_12factor', group: :production

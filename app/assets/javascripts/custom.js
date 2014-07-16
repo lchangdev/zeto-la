@@ -3,12 +3,12 @@ $(document).ready(function(){
 
   $('#posts-btn').on('click', function(e){
     $('#posts-container, .new-post-link-container, #sort-posts').show();
-    $('.launch-info-users, .launch-info-options, .launch-info-search, #sort-columns').hide();
+    $('.launch-info-users, .launch-info-options, #sort-columns').hide();
     e.preventDefault();
   })
 
   $('#users-btn').on('click', function(e){
-    $('.launch-info-users, .launch-info-options, .launch-info-search, #sort-columns').show();
+    $('.launch-info-users, .launch-info-options, #sort-columns').show();
     $('#posts-container, .new-post-link-container, #sort-posts').hide();
     e.preventDefault();
   })
@@ -36,12 +36,12 @@ $(document).ready(function(){
   var randFall2014 = randomColor({hue: 'green'});
   var randWinter2014 = randomColor({hue: 'purple'});
 
-  $('.experienceengineer').css("color", randExperienceEngineer);
-  $('.launchstaff').css("color", randExperienceEngineer);
-  $('.winter2013').css("color", randWinter2013);
-  $('.spring2014').css("color", randSpring2014);
-  $('.summer2014').css("color", randSummer2014);
-  $('.fall2014').css("color", randFall2014);
-  $('.winter2014').css("color", randWinter2014);
+  $('.experienceengineer').css("color", "#F89406");
+  $('.launchstaff').css("color", "#F89406");
+  $('.winter2013').css("color", "#6163c6");
+  $('.spring2014').css("color", "#e871ae");
+  $('.summer2014').css("color", "#848484");
+  $('.fall2014').css("color", "#D24D57");
+  $('.winter2014').css("color"," #8855e0");
 
 });
