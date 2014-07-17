@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources :members
+    resources :members, only: [:create]
   end
 
   match '/about', to: 'users#about', via: [:get, :post]

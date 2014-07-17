@@ -20,7 +20,11 @@ $(document).ready(function() {
     if (properties.role === "Job Lead" || properties.role === "Event") {
       popupContent = '<div class="popup">' + '<p>' + properties.title + '</p>' + '<a href="#postModal' + properties.id + '" role="button" data-toggle="modal" rel="tooltip">' + 'details' + '</a>' + '</div>';
     } else {
-      popupContent = '<div class="popup">' + '<p>' + properties.name + '</p>' + '<a href="#showModal' + properties.id + '" role="button" data-toggle="modal" rel="tooltip">' + 'details' + '</a>' + '</div>';
+      if (properties.tagline != null){
+        popupContent = '<div class="popup">' + '<p>' + properties.name + '<br>' + properties.tagline + '<p>' + '<a href="#showModal' + properties.id + '" role="button" data-toggle="modal" rel="tooltip">' + 'details' + '</a>' + '</div>';
+      } else {
+        popupContent = '<div class="popup">' + '<p>' + properties.name + '</p>' + '<a href="#showModal' + properties.id + '" role="button" data-toggle="modal" rel="tooltip">' + 'details' + '</a>' + '</div>';
+      };
     };
 
     marker.bindPopup(popupContent, {
