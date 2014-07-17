@@ -4,8 +4,9 @@ class Post < ActiveRecord::Base
   validates :date, presence: true
   validates :user_id, presence: true
 
-  belongs_to :user
-  has_many :members
+  belongs_to :author, foreign_key: 'user_id', class_name: "user"
+  has_many :users, through: :members
+  has_many :members, dependent: :destroy
 
   geocoded_by :address
 

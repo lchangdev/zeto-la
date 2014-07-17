@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   def create
-    @member = Member.new(user_id: current_user.id, post_id: params[:post_id])
+    @member = Member.new(user: current_user, post_id: params[:post_id])
     if @member.save
       flash[:notice] = "Successfully joined the event."
       redirect_to post_path(params[:post_id])

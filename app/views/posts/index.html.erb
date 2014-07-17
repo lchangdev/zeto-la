@@ -6,15 +6,20 @@
       <td>Last Updated On</td>
       <td>Post Title</td>
       <td>Post Type</td>
+      <td>Member</td>
       <td>Post Author</td>
     </tr>
   <% @posts.each do |post| %>
+  <% binding.pry %>
     <tr>
       <td><%= post.created_at.strftime("%m/%d/%Y") %></td>
       <td><%= post.updated_at.strftime("%m/%d/%Y") %></td>
       <td><%= link_to post.title, post_path(post) %></td>
       <td><%= post.role %></td>
-      <td><%= post.user.name %></td>
+      <td>
+
+      </td>
+      <td><%= post.author.name %></td>
     </tr>
   <% end %>
   </table>

@@ -9,8 +9,9 @@ class User < ActiveRecord::Base
   validates :tagline, length: {maximum: 160}
 
   has_many :contact_requests
-  has_many :posts
-  has_many :members
+  has_many :posts, as: :author
+  has_many :posts, through: :members
+  has_many :members, dependent: :destroy
 
   geocoded_by :address
 
