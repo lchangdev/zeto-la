@@ -10,6 +10,7 @@ FactoryGirl.define do
     confirmation true
     sequence(:name) {|n| "John Doe #{n}"}
     sequence(:email) {|n| "joe#{n}@bloggs.com"}
+    cohort 'Summer 2014'
 
     trait :with_id do
       sequence(:id) {|n| n}
@@ -17,10 +18,6 @@ FactoryGirl.define do
 
     trait :with_address do
       sequence(:address) {|n| "#{n} Main St. Boston, MA. 11111"}
-    end
-
-    trait :with_cohort do
-      cohort 'Summer 2014'
     end
   end
 end

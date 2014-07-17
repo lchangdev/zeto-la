@@ -7,12 +7,15 @@ feature 'User signs in for the first time', %Q{
 } do
 
   scenario 'As first time user, must update information' do
-    user = FactoryGirl.create(:user, :with_name, :with_email)
+    user = FactoryGirl.create(:user)
     visit root_path
     mock_auth(user)
-    click_link 'sign in'
 
-    click_button 'Enter'
+    within "div.navbar" do
+      click_link 'sign in'
+    end
+
+    click_link 'Enter'
     fill_in 'Address', with: user.address
     fill_in 'Company name', with: user.company_name
     select('Summer 2014', from: 'Cohort')

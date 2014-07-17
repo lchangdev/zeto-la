@@ -9,7 +9,7 @@ $(document).ready(function() {
   }).responseText);
 
   var featureLayer = L.mapbox.featureLayer(data).addTo(map)
-
+  debugger
   featureLayer.eachLayer(function(data) {
     var marker;
     var properties;

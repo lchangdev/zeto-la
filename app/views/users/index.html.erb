@@ -188,9 +188,9 @@
               </div>
           </div>
           <div class="modal-footer">
-            <%= post.user.name %>
-            <% if post.user.confirmation %>
-              <%= link_to new_user_contact_request_path(post.user), class: 'email-link' do %>
+            <%= post.author.name %>
+            <% if post.author.confirmation %>
+              <%= link_to new_user_contact_request_path(post.author), class: 'email-link' do %>
                 <%= image_tag('email.png', class: 'email-image') %>
               <% end %>
             <% end %>

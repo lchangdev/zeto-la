@@ -34,6 +34,8 @@ group :test, :development do
   gem 'capybara'
   gem 'email_spec'
   gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'valid_attribute'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

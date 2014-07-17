@@ -7,13 +7,15 @@ feature 'User contacts launcher', %Q{
 } do
 
   scenario 'user receives confirmation email and sends request email' do
-    user = FactoryGirl.create(:user, :with_name, :with_email, :with_address,
-      :with_cohort)
-    user2 = FactoryGirl.create(:user, :with_name, :with_email, :with_address,
-      :with_cohort)
+    user = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user)
     visit root_path
     mock_auth(user2)
-    click_link 'sign in'
+
+    within "div.navbar" do
+      click_link 'sign in'
+    end
+
     click_link 'Enter'
     ActionMailer::Base.deliveries = []
 
