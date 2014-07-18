@@ -8,10 +8,10 @@
     <div class="col-md-12">
       <table class="table all-posts-table">
         <tr>
-          <td>Created On</td>
-          <td>Last Updated On</td>
-          <td>Post Title</td>
-          <td>Post Type</td>
+          <td><%= sort_posts("created_at", "Created On")  %></td>
+          <td><%= sort_posts("updated_at", "Last Updated On") %></td>
+          <td><%= sort_posts("title", "Post Title")%></td>
+          <td><%= sort_posts("role", "Post Type")%></td>
           <td>Post Author</td>
         </tr>
       <% @posts.each do |post| %>

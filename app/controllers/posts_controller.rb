@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
+  helper_method :sort_post_column, :sort_direction
   before_action :authenticate!
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(sort_post_column + " " + sort_direction)
   end
 
   def new
@@ -58,5 +59,14 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :description, :address, :date, :time, :role)
+  end
+
+  def sort_post_column
+    # need to make more specific for security
+    %w[created_at updated_at title role].include?(params[:sort]) ? params[:sort] : 'created_at'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
   end
 end

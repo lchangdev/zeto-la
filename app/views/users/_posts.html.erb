@@ -8,12 +8,14 @@
         </a>
       </div>
       <div class="col-xs-1">
-        <% if post.role == "Event" && !post.users.include?(current_user) %>
-          <%= form_for [post, @member] do |f| %>
-            <% f.submit 'Join', class: 'btn btn-default post-join-btn' %>
+        <% if post.author != current_user %>
+          <% if post.role == "Event" && !post.users.include?(current_user) %>
+            <%= form_for [post, @member] do |f| %>
+              <% f.submit 'Join', class: 'btn btn-default post-join-btn' %>
+            <% end %>
+          <% elsif post.role == "Event" && post.users.include?(current_user) %>
+            <%= button_to 'Leave', [post, @current_member], method: :delete, class: 'btn btn-default post-join-btn' %>
           <% end %>
-        <% elsif post.role == "Event" && post.users.include?(current_user) %>
-          <%= button_to 'Leave', [post, @current_member], method: :delete, class: 'btn btn-default post-join-btn' %>
         <% end %>
       </div>
       <div class="col-xs-12 post-author-container">
