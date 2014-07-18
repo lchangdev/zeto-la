@@ -59,7 +59,7 @@
           <% if @post.role == "Event" %>
             <tr>
               <td><%= image_tag('time.png', class: 'time-image') %></td>
-              <td><%= @post.time.strftime("%l:%M %p") %></td>
+              <td><%= @post.time.strftime("%l:%M %p") %> EST</td>
             </tr>
           <% end %>
 
@@ -102,17 +102,10 @@
           </tr>
         </table>
       </div>
-      <div class="col-md-12 post-members-container">
-        <div class="row">
-          <div class="col-md-1">
-            <% @post.users.each do |user| %>
-            <% end %>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <div class="col-md-12 back-link-container">
     <%= link_to 'Back', posts_path, class: "back-link" %>
   </div>
+
 </div>
