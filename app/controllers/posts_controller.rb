@@ -26,6 +26,9 @@ class PostsController < ApplicationController
       flash[:notice] = "Successfully created a post."
       redirect_to posts_path
     else
+      @post.errors.each do |error|
+        puts error
+      end
       flash[:notice] = "There was an error. Please try again."
       render :new
     end
