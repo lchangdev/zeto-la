@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources :members, only: [:create]
+    resources :members, only: [:create, :destroy]
   end
 
   match '/about', to: 'users#about', via: [:get, :post]
+  match '/contact', to: 'users#contact', via: [:get, :post]
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]

@@ -9,7 +9,7 @@ $(document).ready(function() {
   }).responseText);
 
   var featureLayer = L.mapbox.featureLayer(data).addTo(map)
-  debugger
+
   featureLayer.eachLayer(function(data) {
     var marker;
     var properties;
@@ -45,7 +45,6 @@ $(document).ready(function() {
         id = marker._leaflet_id;
         map.panTo(featureLayer._layers[id]._latlng);
         return featureLayer._layers[id].openPopup(marker);
-        debugger
       } else if (marker.feature.properties.title === currentlyClickedPost) {
         id = marker._leaflet_id;
         map.panTo(featureLayer._layers[id]._latlng);

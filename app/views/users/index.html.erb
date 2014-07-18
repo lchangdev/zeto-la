@@ -172,20 +172,41 @@
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <h4 class="modal-title" id="postModalLabel"><%= post.title %></h4>
           </div>
-          <div class="modal-body post-details-container">
-            <% if post.role == "Job Lead" %>
-              <div class="row">
-                <div class="col-xs-6">
-                  <p>Created On: <%= post.created_at.strftime("%m/%d/%Y")  %><br> Last Updated On: <%= post.updated_at.strftime("%m/%d/%Y")  %></p>
-                </div>
-                <div class="col-xs-6" id="post-role">
-                  Post Type: <%= post.role %>
-                </div>
-                <div class="col-xs-12">
-                  <h3>Description:</h3><br>
-                  <%= post.description %>
-                </div>
-              </div>
+          <div class="modal-body post-show-details-container">
+          <table class="table show-post-table">
+            <tr>
+              <td class="green">Description</td>
+            </tr>
+            <tr>
+              <td><%= post.description.truncate(150) %> <%= link_to 'more info', post_path(post) %></td>
+            </tr>
+          </table>
+          <table class="table show-post-table">
+            <tr>
+              <td class="green">Details</td>
+            </tr>
+          </table>
+          <table class="table">
+            <tr>
+              <% if post.role == "Event" %>
+                <td><%= image_tag('calender.png', class: 'calender-image') %></td>
+                <td><%= post.date%></td>
+              <% else %>
+                <td class="green">Created On</td>
+                <td><%= post.created_at.strftime("%m/%d/%Y") %></td>
+              <% end %>
+            </tr>
+            <% if post.role == "Event" %>
+              <tr>
+                <td><%= image_tag('time.png', class: 'time-image') %></td>
+                <td><%= post.time.strftime("%l:%M %p") %> EST</td>
+              </tr>
+            <% end %>
+            <tr>
+              <td><%= image_tag('marker.png', class: 'user-show-marker') %></td>
+              <td><%= post.address %></td>
+            </tr>
+          </table>
           </div>
           <div class="modal-footer">
             <%= post.author.name %>
@@ -196,7 +217,7 @@
             <% end %>
           </div>
         </div>
-            <% end %>
+
       </div>
     </div>
   <% end %>

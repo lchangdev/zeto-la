@@ -1,49 +1,49 @@
 <%= form_for (zone), html: { class: "form-horizontal" } do |f| %>
   <div class="form-group">
-    <%= f.label :title, class: "col-md-2 control-label header" %>
+    <%= f.label :title, class: "col-md-2 control-label header green" %>
     <div class="col-md-9">
       <%= f.text_field :title, required: true, class: "form-control" %>
-      Must be 60 characters or less.
+      Must be max 60 characters roughly the length of this sentence.
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :description, class: "col-md-2 control-label header" %>
+    <%= f.label :description, class: "col-md-2 control-label header green" %>
     <div class="col-md-9">
       <%= f.text_area :description, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :address, class: "col-md-2 control-label header" %>
+    <%= f.label :address, class: "col-md-2 control-label header green" %>
     <div class="col-md-9">
       <%= f.text_field :address, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :date, class: "col-md-2 control-label header" %>
+    <%= f.label :date, class: "col-md-2 control-label header green" %>
     <div class="col-md-2">
       <%= f.text_field :date, class: "form-control input-group date" %><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :time, class: "col-md-2 control-label header" %>
+    <%= f.label :time, class: "col-md-2 control-label header green" %>
     <div class="col-md-2 input-append bootstrap-timepicker">
       <%= f.text_field :time, class: "form-control timepicker input-small" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :role, class: "col-md-2 control-label header" %>
+    <%= f.label :role, class: "col-md-2 control-label header green" %>
     <div class="col-md-9 dropdown">
       <%= f.select :role, [['Job Lead'], ['Event']], class: "dropdown" %>
     </div>
   </div>
 
-  <div class="col-md-5">
-    <%= f.submit 'submit', class: 'btn btn-default' %>
+  <div class="col-md-5 col-md-offset-1">
+    <%= f.submit 'submit', class: 'btn btn-default create-post-submit-btn' %>
   </div>
 
 <% end %>

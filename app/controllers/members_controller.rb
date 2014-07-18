@@ -9,4 +9,11 @@ class MembersController < ApplicationController
       redirect_to post_path(params[:post_id])
     end
   end
+
+  def destroy
+    @member = Member.find_by(user_id: current_user.id, post_id: params[:post_id])
+    @member.destroy
+    flash[:notice] = "You have successfully left the event."
+    redirect_to posts_path
+  end
 end

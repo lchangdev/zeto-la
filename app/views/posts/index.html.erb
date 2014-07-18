@@ -1,27 +1,30 @@
-
 <div class="col-md-12 all-posts-container">
-  <table class="table all-posts-table">
-    <tr>
-      <td>Created On</td>
-      <td>Last Updated On</td>
-      <td>Post Title</td>
-      <td>Post Type</td>
-      <td>Member</td>
-      <td>Post Author</td>
-    </tr>
-  <% @posts.each do |post| %>
-  <% binding.pry %>
-    <tr>
-      <td><%= post.created_at.strftime("%m/%d/%Y") %></td>
-      <td><%= post.updated_at.strftime("%m/%d/%Y") %></td>
-      <td><%= link_to post.title, post_path(post) %></td>
-      <td><%= post.role %></td>
-      <td>
-
-      </td>
-      <td><%= post.author.name %></td>
-    </tr>
-  <% end %>
-  </table>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-8 create-post-btn-container">
+      <%= link_to 'Create New Post', new_post_path, class: 'btn btn-default create-post-btn' %>
+      <%= link_to 'My Posts', new_post_path, class: 'btn btn-default create-post-btn' %>
+      <%= link_to 'Events Attending', new_post_path, class: 'btn btn-default create-post-btn' %>
+    </div>
+    <div class="col-md-12">
+      <table class="table all-posts-table">
+        <tr>
+          <td>Created On</td>
+          <td>Last Updated On</td>
+          <td>Post Title</td>
+          <td>Post Type</td>
+          <td>Post Author</td>
+        </tr>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.created_at.strftime("%m/%d/%Y") %></td>
+          <td><%= post.updated_at.strftime("%m/%d/%Y") %></td>
+          <td><%= link_to post.title, post_path(post) %></td>
+          <td><%= post.role %></td>
+          <td><%= post.author.name %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
 </div>
 

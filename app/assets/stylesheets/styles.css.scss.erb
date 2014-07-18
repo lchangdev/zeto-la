@@ -33,6 +33,10 @@ a {
   margin: auto;
 }
 
+.green {
+  color: $main-green;
+}
+
 /* ----------- navbar ----------- */
 
 .navbar {
@@ -96,6 +100,16 @@ a {
 
 .enter-btn:hover {
   text-decoration: none;
+}
+
+/* ----------- about ----------- */
+
+.about-container {
+  padding-top: 100px;
+}
+
+.about-me-purpose {
+  text-align: center;
 }
 
 /* ----------- user#index ----------- */
@@ -274,6 +288,20 @@ a {
   padding-top: 100px;
 }
 
+.email-header-container {
+  border-bottom: 1px solid $main-green;
+}
+
+.email-form-container {
+  padding-top: 30px;
+}
+
+.email-submit-btn {
+  border: 1px solid $main-green;
+  &:hover {
+    border: 1px solid $main-green;
+  }
+}
 /* ----------- post#index ----------- */
 
 .all-posts-container {
@@ -293,6 +321,83 @@ a {
 
 .input-group-addon {
   display: none;
+}
+
+.new-post-header-container {
+  border-bottom: 1px solid $main-green;
+}
+
+.new-post-form-container {
+  padding-top: 30px;
+}
+
+.create-post-submit-btn {
+  border: 1px solid $main-green;
+  &:hover {
+    border: 1px solid $main-green;
+  }
+}
+/* ----------- post#show ----------- */
+
+.post-show-container {
+  padding-top: 100px;
+}
+
+.post-show-content {
+  text-align: center;
+}
+
+.post-details-container {
+  margin-top: 50px;
+}
+
+.post-event-join-container {
+  padding-bottom: 30px;
+}
+
+.post-join-btn,
+.create-post-btn {
+  border: 1px solid $main-green;
+  &:hover {
+    border: 1px solid $main-green;
+  }
+}
+
+.create-post-btn {
+  margin-right: 2px;
+}
+
+.create-post-btn-container {
+  padding-bottom: 40px;
+}
+
+.time-image {
+  height: 23px;
+  width: 23px;
+}
+
+.calender-image {
+  height: 30px;
+  width: 30px;
+}
+
+.post-author-detail-container {
+  padding-bottom: 30px;
+}
+
+.post-author-detail-container,
+.post-details-container,
+.post-title-description-container {
+  border: 1px solid $main-green;
+}
+
+.show-post-table tr:first-child td {
+  border-top: none;
+  padding-top: 30px;
+}
+
+.post-show-flash-container {
+  text-align: center;
 }
 
 /* ----------- media queries ----------- */
@@ -346,6 +451,10 @@ a {
   .email-link-container {
     display: inline;
     float: right;
+  }
+
+  .post-title-description-container {
+    margin-top: 50px;
   }
 }
 

@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def index
     authenticate!
 
+    @member = Member.new
+    @current_member = Member.find_by(user_id: current_user.id)
     if !params[:search] || params[:search].empty?
       @users = User.all.order(sort_user_column + " " + sort_direction)
       @posts = Post.all.order('created_at desc').limit(20)
@@ -132,7 +134,9 @@ class UsersController < ApplicationController
   end
 
   def about
+  end
 
+  def contact
   end
 
   private

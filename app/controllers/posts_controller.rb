@@ -11,6 +11,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @member = Member.new
+    @members = Member.where(post_id: params[:id])
+    @current_member = Member.find_by(user_id: current_user.id)
   end
 
   def create
