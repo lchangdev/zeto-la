@@ -3,7 +3,9 @@ class PostsController < ApplicationController
   before_action :authenticate!
 
   def index
-    @posts = Post.all.order(sort_post_column + " " + sort_direction)
+    @posts = Post.all.order(sort_post_column + " " + sort_direction).page(params[:page]).per(20)
+    @my_posts = Post.all.where(author: current_user).order(sort_post_column + " " + sort_direction)
+    @events_attending = Member.all.where(user_id: current_user.id)
   end
 
   def new

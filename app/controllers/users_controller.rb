@@ -74,7 +74,7 @@ class UsersController < ApplicationController
             date: post.date,
             time: post.time,
             role: post.role,
-            :'marker-color' => '#E87E04',
+            :'marker-color' => '#6C7A89',
             :'marker-symbol' => 'circle',
             :'marker-size' => 'medium'
           }

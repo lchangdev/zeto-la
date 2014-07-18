@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+  // user#index posts
   $('#posts-container, .new-post-link-container, #sort-posts').hide();
 
   $('#posts-btn').on('click', function(e){
@@ -13,6 +15,28 @@ $(document).ready(function(){
     e.preventDefault();
   })
 
+  // post#index tables
+  $('.my-posts-table, .events-attending-table').hide();
+
+  $('.my-posts-btn').on('click', function(e){
+    $('.my-posts-table').show();
+    $('.all-posts-table, .events-attending-table').hide();
+    e.preventDefault();
+  })
+
+  $('.all-posts-btn').on('click', function(e){
+    $('.all-posts-table').show();
+    $('.my-posts-table, .events-attending-table').hide();
+    e.preventDefault();
+  })
+
+  $('.events-attending-btn').on('click', function(e){
+    $('.events-attending-table').show();
+    $('.all-posts-table, .my-posts-table').hide();
+    e.preventDefault();
+  })
+
+  // buttons
   $('.enter-btn, .initial-enter-btn').mouseenter(function(){
     $(this).fadeTo('medium', 0.6);
   });
@@ -21,6 +45,7 @@ $(document).ready(function(){
     $(this).fadeTo('medium', 1);
   });
 
+  // collapse
   $('#collapse-trigger').mouseenter(function(){
     $(this).fadeTo('medium', 1);
   });
@@ -29,6 +54,7 @@ $(document).ready(function(){
     $(this).fadeTo('medium', 0.7);
   });
 
+  // cohort colors
   var randExperienceEngineer = randomColor({hue: 'orange'});
   var randWinter2013 = randomColor({hue: 'blue'});
   var randSpring2014 = randomColor({hue: 'pink'});

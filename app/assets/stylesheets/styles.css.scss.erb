@@ -37,6 +37,10 @@ a {
   color: $main-green;
 }
 
+.black {
+  color: $main-black;
+}
+
 /* ----------- navbar ----------- */
 
 .navbar {
@@ -324,9 +328,19 @@ a {
   padding-top: 100px;
 }
 
-.all-posts-table tr:first-child td {
+.all-posts-table tr:first-child td,
+.my-posts-table tr:first-child td,
+.events-attending-table tr:first-child td, {
   border-top: none;
   color: $main-green;
+}
+
+.posts-container {
+  padding-top: 30px;
+}
+
+.pagination {
+  text-align: center;
 }
 
 /* ----------- post#new ----------- */
@@ -389,7 +403,10 @@ a {
 .post-join-btn,
 .create-post-btn,
 .post-edit-btn,
-.post-delete-btn {
+.post-delete-btn,
+.my-posts-btn,
+.events-attending-btn,
+.all-posts-btn {
   border: 1px solid $main-green;
   &:hover {
     border: 1px solid $main-green;

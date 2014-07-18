@@ -1,11 +1,12 @@
 <div class="col-md-12 all-posts-container">
   <div class="row">
-    <div class="col-md-4 col-md-offset-8 create-post-btn-container">
+    <div class="col-md-5 col-md-offset-7 all-posts-btn-container">
       <%= link_to 'Create New Post', new_post_path, class: 'btn btn-default create-post-btn' %>
-      <%= link_to 'My Posts', new_post_path, class: 'btn btn-default create-post-btn' %>
-      <%= link_to 'Events Attending', new_post_path, class: 'btn btn-default create-post-btn' %>
+      <%= link_to 'All Posts', new_post_path, class: 'btn btn-default all-posts-btn' %>
+      <%= link_to 'My Posts', new_post_path, class: 'btn btn-default my-posts-btn' %>
+      <%= link_to 'Events Attending', new_post_path, class: 'btn btn-default events-attending-btn' %>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 posts-container">
       <table class="table all-posts-table">
         <tr>
           <td><%= sort_posts("created_at", "Created On")  %></td>
@@ -21,6 +22,51 @@
           <td><%= link_to post.title, post_path(post) %></td>
           <td><%= post.role %></td>
           <td><%= post.author.name %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+    <div class="col-md-12 pagination">
+      <%= paginate @posts %>
+    </div>
+
+    <div class="col-md-12">
+      <table class="table my-posts-table">
+        <tr>
+          <td><span class="black">Created On</span></td>
+          <td><span class="black">Last Updated On</span></td>
+          <td><span class="black">Post Title</span></td>
+          <td><span class="black">Post Type</span></td>
+          <td><span class="black">Post Author</span></td>
+        </tr>
+      <% @my_posts.each do |post| %>
+        <tr>
+          <td><%= post.created_at.strftime("%m/%d/%Y") %></td>
+          <td><%= post.updated_at.strftime("%m/%d/%Y") %></td>
+          <td><%= link_to post.title, post_path(post) %></td>
+          <td><%= post.role %></td>
+          <td><%= post.author.name %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+
+    <div class="col-md-12">
+      <table class="table events-attending-table">
+        <tr>
+          <td><span class="black">Created On</span></td>
+          <td><span class="black">Last Updated On</span></td>
+          <td><span class="black">Post Title</span></td>
+          <td><span class="black">Post Type</span></td>
+          <td><span class="black">Post Author</span></td>
+        </tr>
+      <% @events_attending.each do |event| %>
+        <tr>
+          <td><%= event.post.created_at.strftime("%m/%d/%Y") %></td>
+          <td><%= event.post.updated_at.strftime("%m/%d/%Y") %></td>
+          <td><%= link_to event.post.title, post_path(event.post) %></td>
+          <td><%= event.post.role %></td>
+          <td><%= event.post.author.name %></td>
         </tr>
       <% end %>
       </table>
