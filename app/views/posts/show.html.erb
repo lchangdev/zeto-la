@@ -1,15 +1,22 @@
 <div class="col-md-12 post-show-container">
-  <div class="col-md-1">
-    <%= link_to 'Back', posts_path %>
-  </div>
-  <div class="col-md-1 col-md-offset-10 post-event-join-container">
-    <% if @post.role == "Event" && !@post.users.include?(current_user) %>
-      <%= form_for [@post, @member] do |f| %>
-        <% f.submit 'Join', class: 'btn btn-default post-join-btn' %>
+  <div class="row">
+    <div class="col-md-3">
+      <% if @post.author == current_user %>
+        <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-default post-edit-btn' %>
+        <%= link_to 'Delete', @post, method: :delete, class: 'btn btn-default post-delete-btn' %>
       <% end %>
-    <% elsif @post.role == "Event" && @post.users.include?(current_user) %>
-      <%= button_to 'Leave', [@post, @current_member], method: :delete, class: 'btn btn-default post-join-btn' %>
-    <% end %>
+    </div>
+    <div class="col-md-1 col-md-offset-11 post-event-join-container">
+      <% if @post.author != current_user %>
+        <% if @post.role == "Event" && !@post.users.include?(current_user) %>
+          <%= form_for [@post, @member] do |f| %>
+            <% f.submit 'Join', class: 'btn btn-default post-join-btn' %>
+          <% end %>
+        <% elsif @post.role == "Event" && @post.users.include?(current_user) %>
+          <%= button_to 'Leave', [@post, @current_member], method: :delete, class: 'btn btn-default post-join-btn' %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="col-md-5">
     <div class="row">
@@ -105,5 +112,7 @@
       </div>
     </div>
   </div>
-
+  <div class="col-md-12 back-link-container">
+    <%= link_to 'Back', posts_path, class: "back-link" %>
+  </div>
 </div>

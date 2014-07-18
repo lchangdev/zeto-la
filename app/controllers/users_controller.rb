@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   helper_method :sort_user_column, :sort_direction
+  before_action :authenticate!, except: [:home, :about, :contact]
 
   def index
-    authenticate!
-
     @member = Member.new
     @current_member = Member.find_by(user_id: current_user.id)
     if !params[:search] || params[:search].empty?
@@ -15,6 +14,7 @@ class UsersController < ApplicationController
 
       user_count = @users.to_a.count
       post_count = @posts.to_a.count
+
       if user_count == 1
         word1 = ['is', 'Launcher']
       else
@@ -89,7 +89,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    authenticate!
     if current_user
       if current_user.id == params[:id]
         @user = User.find(params[:id])

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate!
 
   def index
     @posts = Post.all
@@ -20,11 +21,19 @@ class PostsController < ApplicationController
     @post.author = current_user
     if @post.save
       flash[:notice] = "Successfully created a post."
-      redirect_to users_path
+      redirect_to posts_path
     else
       flash[:notice] = "There was an error. Please try again."
       render :new
     end
+  end
+
+  def edit
+
+  end
+
+  def update
+
   end
 
   def destroy
