@@ -146,7 +146,7 @@ class UsersController < ApplicationController
 
   def sort_user_column
     # need to make more specific for security
-    %w[name cohort].column_names.include?(params[:sort]) ? params[:sort] : 'name'
+    %w[name cohort].include?(params[:sort]) ? params[:sort] : 'name'
   end
 
   def sort_direction
