@@ -69,5 +69,4 @@ $(document).ready(function(){
   $('.summer2014').css("color", "#848484");
   $('.fall2014').css("color", "#D24D57");
   $('.winter2014').css("color"," #8855e0");
-
 });

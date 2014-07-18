@@ -64,7 +64,6 @@ class PostsController < ApplicationController
   end
 
   def sort_post_column
-    # need to make more specific for security
     %w[created_at updated_at title role].include?(params[:sort]) ? params[:sort] : 'created_at'
   end
 

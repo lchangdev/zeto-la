@@ -55,41 +55,34 @@
               <td><%= @post.created_at.strftime("%m/%d/%Y") %></td>
             <% end %>
           </tr>
-
           <% if @post.role == "Event" %>
             <tr>
               <td><%= image_tag('time.png', class: 'time-image') %></td>
               <td><%= @post.time.strftime("%l:%M %p") %> EST</td>
             </tr>
           <% end %>
-
           <tr>
             <td><%= image_tag('marker.png', class: 'user-show-marker') %></td>
             <td><%= @post.address %></td>
           </tr>
-
           <tr>
             <td class="green">Post Type</td>
             <td><%= @post.role %></td>
           </tr>
-
           <tr>
             <td class="green">Last Updated On</td>
             <td><%= @post.updated_at.strftime("%m/%d/%Y") %></td>
           </tr>
-
           <% if @post.role == "Event" %>
             <tr>
               <td class="green">Members</td>
               <td><%= @members.count %></td>
             </tr>
           <% end %>
-
         </table>
       </div>
     </div>
   </div>
-
   <div class="col-md-6 col-md-offset-1">
     <div class="row">
       <div class="col-md-12 post-title-description-container">
@@ -107,5 +100,4 @@
   <div class="col-md-12 back-link-container">
     <%= link_to 'Back', posts_path, class: "back-link" %>
   </div>
-
 </div>
