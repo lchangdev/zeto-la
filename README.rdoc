@@ -27,3 +27,5 @@ Current Features
 * User able to open popups programmatically.
 
 Built using Ruby, HTML, CSS, JavaScript, jQuery, AJAX with Rails
+
+[![Build Status](https://travis-ci.org/<lchangdev>/<zeto-la>.svg?branch=master)](https://travis-ci.org/<lchangdev>/<zeto-la>) [![Code Climate](https://codeclimate.com/github/<lchangdev>/<zeto-la>.png)](https://codeclimate.com/github/<lchangdev>/<zeto-la>) [![Coverage Status](https://coveralls.io/repos/<lchangdev>/<zeto-la>/badge.png)](https://coveralls.io/r/<lchangdev>/<zeto-la>)

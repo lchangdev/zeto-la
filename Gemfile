@@ -36,6 +36,7 @@ group :test, :development do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'valid_attribute'
+  gem 'coveralls', require: false
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
