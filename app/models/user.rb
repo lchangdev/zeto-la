@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   validates :tagline, length: {maximum: 160}
 
   has_many :contact_requests
-  has_many :posts, as: :author
-  has_many :posts, through: :members
+  has_many :posts, as: :author, dependent: :destroy
+  has_many :posts, through: :members, dependent: :destroy
   has_many :members, dependent: :destroy
 
   geocoded_by :address
@@ -28,5 +28,9 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
+  end
+
+  def self.cohort
+    ['Fall 2013', 'Summer 2013', 'Winter 2013', 'Spring 2014', 'Summer 2014', 'Fall 2014', 'Winter 2014', 'Experience Engineer', 'Launch Staff', 'Hiring Partner']
   end
 end

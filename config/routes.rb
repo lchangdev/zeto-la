@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :members, only: [:create, :destroy]
   end
 
+  namespace :admin do
+    resources :users, only: [:index, :destroy, :edit, :update]
+  end
+
   match '/about', to: 'users#about', via: [:get, :post]
   match '/contact', to: 'users#contact', via: [:get, :post]
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

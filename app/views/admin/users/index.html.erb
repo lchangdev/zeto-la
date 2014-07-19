@@ -1,0 +1,18 @@
+<div class="col-md-12 a-container">
+  <h1>Admin Page</h1>
+  <table class="table a-table">
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td></td>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to 'edit account', edit_admin_user_path(user) %></td>
+        <td><%= link_to 'delete account', admin_user_path(user), method: :delete, class: 'delete-link' %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,20 @@
+<div class="edit-post-container row">
+  <div id="flash-message" class="col-md-12">
+    <% if flash.any? %>
+      <%= flash[:notice] %>
+    <% end %>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 edit-post-header-container">
+        <h1 class="header">Edit <%= @user.name %>&rsquo;s Profile</h1>
+      </div>
+      <div class="col-md-12 edit-post-form-container">
+        <%= render partial: "form", locals: {zone: [:admin, @user]} %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 back-link-container">
+    <%= link_to 'Back', admin_users_path, class: "back-link" %>
+  </div>
+</div>
