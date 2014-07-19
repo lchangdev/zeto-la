@@ -34,7 +34,7 @@
     <div class="new-post-link-container col-md-12">
       <table class="table">
         <tr>
-          <td><%= link_to 'Create New Post', new_post_path %></td>
+          <td><%= image_tag('plus.png', class: 'plus-image') %> <%= link_to 'Create New Post', new_post_path %></td>
         </tr>
       </table>
     </div>
@@ -42,8 +42,8 @@
     <div class="col-md-12" id="page-tabs-container">
       <table class="table">
         <tr>
-          <td><a href="#" id="users-btn">Launchers</a></td>
-          <td><a href="#" id="posts-btn">Posts</a></td>
+          <td><%= image_tag('user.png', class: 'user-image') %> <a href="#" id="users-btn">Launchers</a></td>
+          <td><%= image_tag('list.png', class: 'list-image') %> <a href="#" id="posts-btn">Posts</a></td>
         </tr>
       </table>
     </div>
