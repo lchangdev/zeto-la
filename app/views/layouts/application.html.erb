@@ -33,9 +33,9 @@
             <p class="navbar-text navbar-right"><%= link_to "sign in", "/auth/facebook", id: "sign_in", class: 'login-link' %></p>
           <% end %>
           <ul class="nav navbar-nav">
+          <li><%= link_to 'Posts', posts_path %></li>
           <li><%= link_to 'About', about_path %></li>
           <li><%= link_to 'Contact', contact_path %></li>
-          <li><%= link_to 'Posts', posts_path %></li>
           <% if current_user && current_user.role == 'admin' %>
             <li><%= link_to 'Admin', admin_users_path %></li>
           <% end %>
