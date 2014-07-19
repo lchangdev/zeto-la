@@ -44,7 +44,7 @@ module Admin
     end
 
     def user_params
-      params.require(:user).permit(:address, :tagline, :twitter, :github, :company_name, :cohort)
+      params.require(:user).permit(:address, :tagline, :twitter, :github, :company_name, :cohort, :secondary_email)
     end
   end
 end

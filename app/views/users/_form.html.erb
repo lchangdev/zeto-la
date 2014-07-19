@@ -44,6 +44,14 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <%= f.label :secondary_email, class: "col-md-2 control-label header" %>
+    <div class="col-md-9">
+      <%= f.text_field :secondary_email, class: "form-control" %>
+      *Optional: If you wish to use a different email.
+    </div>
+  </div>
+
   <p>zētō helps launchers connect with one another primarily through email and is most effective when all launchers provide their emails. However, if you wish to not be contacted but still use zētō's services, please uncheck the box below.</p>
   <div class="form-group">
     <%= f.label 'Confirmation', class: "col-md-2 control-label header" %>

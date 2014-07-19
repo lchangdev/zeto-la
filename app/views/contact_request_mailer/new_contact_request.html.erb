@@ -6,7 +6,14 @@
   <body>
     <h1>zētō</h1>
     <p>Dear <%= @recipient.user.name %>,</p>
-    <p>We want to inform you that <%= @sender.name %> has requested to connect with you. You can read <%= @sender.name%>&lsquo;s below. If you wish to respond to <%= @sender.name %>&lsquo;s request, you can reach them at <%= @sender.email %>.</p>
+    <p>
+      We want to inform you that <%= @sender.name %> has requested to connect with you. You can read <%= @sender.name%>&lsquo;s below. If you wish to respond to <%= @sender.name %>&lsquo;s request, you can reach them at
+      <% if @sender.secondary_email.present? %>
+        <%= @sender.secondary_email %>.
+      <% else %>
+        <%= @sender.email %>.
+      <% end %>
+    </p>
     <br>
     <br>
     <h3>Request:</h3>
@@ -22,6 +29,5 @@
     <p>Have a great day!</p>
     <p>Best regards,</p>
     <p>zētō</p>
-
   </body>
 </html>
