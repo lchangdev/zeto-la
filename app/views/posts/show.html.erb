@@ -38,6 +38,9 @@
                 <% if @post.author.github.present? %>
                   <a href="<%= @post.author.github %>" target="_blank">github</a> |
                 <% end %>
+                <% if @post.author.linkedin.present? %>
+                  <a href="<%= @post.author.linkedin %>" target="_blank">linkedin</a> |
+                <% end %>
                 <% if @post.author.confirmation %>
                   <%= link_to new_user_contact_request_path(@post.author), class: 'email-link' do %>
                     <%= image_tag('email.png', class: 'email-image') %>

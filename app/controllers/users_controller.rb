@@ -141,7 +141,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:address, :tagline, :twitter, :github, :company_name, :cohort, :secondary_email, :confirmation)
+    params.require(:user).permit(:address, :tagline, :twitter, :github, :linkedin, :company_name, :cohort, :secondary_email, :confirmation)
   end
 
   def sort_user_column

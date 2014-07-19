@@ -99,7 +99,7 @@
     </div>
 
     <div class="credits-container col-md-12" >
-      <p class="credits">Lawrence Chang production</p>
+      <p class="credits">Lawrence Chang Production</p>
     </div>
   </div>
 
@@ -132,6 +132,9 @@
               <% if user.twitter.present? %> | <% end %>
               <% if user.github.present? %>
                 <a href="<%= user.github %>" target="_blank">github</a> |
+              <% end %>
+              <% if user.linkedin.present? %>
+                <a href="<%= user.linkedin %>" target="_blank">linkedin</a> |
               <% end %>
               <% if user.confirmation %>
                 <%= link_to new_user_contact_request_path(user), class: 'email-link' do %>

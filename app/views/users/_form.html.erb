@@ -30,6 +30,13 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :linkedin, class: "col-md-2 control-label header" %>
+    <div class="col-md-9">
+      <%= f.text_field :linkedin, class: "form-control", placeholder: 'http://linkedin.com/in/username/' %>
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= f.label :company_name, class: "col-md-2 control-label header" %>
     <div class="col-md-9">
       <%= f.text_field :company_name, class: "form-control" %>
