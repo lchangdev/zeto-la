@@ -1,6 +1,6 @@
 <div class="col-md-12 post-show-container">
   <div class="row">
-    <div class="col-md-2 post-show-options-navbar-container">
+    <div class="col-md-2 col-md-offset-1 post-show-options-navbar-container">
       <% if @post.author == current_user %>
         <table class="table post-show-options-navbar">
           <tr>
@@ -22,7 +22,7 @@
       <% end %>
     </div>
   </div>
-  <div class="col-md-5">
+  <div class="col-md-4 col-md-offset-1">
     <div class="row">
       <div class="col-md-12 post-author-detail-container">
         <table class="table show-post-table">
@@ -32,6 +32,18 @@
           <tr>
             <td>
               <%= image_tag(@post.author.image, class: "img-circle portrait") %>
+              <p>
+                <%= @post.author.twitter %>
+                <% if @post.author.twitter.present? %> | <% end %>
+                <% if @post.author.github.present? %>
+                  <a href="<%= @post.author.github %>" target="_blank">github</a> |
+                <% end %>
+                <% if @post.author.confirmation %>
+                  <%= link_to new_user_contact_request_path(@post.author), class: 'email-link' do %>
+                    <%= image_tag('email.png', class: 'email-image') %>
+                  <% end %>
+                <% end %>
+              </p>
             </td>
           </tr>
         </table>
