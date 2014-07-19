@@ -62,11 +62,12 @@ $(document).ready(function(){
   var randFall2014 = randomColor({hue: 'green'});
   var randWinter2014 = randomColor({hue: 'purple'});
 
-  $('.experienceengineer').css("color", "#F89406");
-  $('.launchstaff').css("color", "#F89406");
-  $('.winter2013').css("color", "#6163c6");
-  $('.spring2014').css("color", "#e871ae");
-  $('.summer2014').css("color", "#848484");
-  $('.fall2014').css("color", "#D24D57");
-  $('.winter2014').css("color"," #8855e0");
+  $('.experienceengineer').css("color", "#F89406"); // orange
+  $('.launchstaff').css("color", "#F89406"); // orange
+  $('.hiringpartner').css("color"," #F1A9A0"); // pink
+  $('.winter2013').css("color", "#6163c6"); // blue
+  $('.spring2014').css("color", "#e871ae"); // pink
+  $('.summer2014').css("color", "#848484"); // grey
+  $('.fall2014').css("color", "#D24D57"); // red
+  $('.winter2014').css("color"," #8855e0"); // purple
 });
