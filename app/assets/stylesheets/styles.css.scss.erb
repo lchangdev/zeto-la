@@ -216,14 +216,6 @@ a {
   padding-top: 5px;
 }
 
-.email-image {
-  height: 30px;
-  width: 30px;
-  &:hover {
-    border-bottom: 1px solid $main-green;
-  }
-}
-
 .credits {
   font-size: 12px;
 }
@@ -345,6 +337,10 @@ a {
   text-align: center;
 }
 
+.post-index-navbar tr {
+  display: inline-block;
+}
+
 /* ----------- post#new ----------- */
 
 .new-post-container {
@@ -398,17 +394,17 @@ a {
   margin-top: 50px;
 }
 
-.post-event-join-container {
+.post-event-join-container,
+.post-show-options-navbar-container {
   padding-bottom: 30px;
 }
 
+.post-show-options-navbar tr {
+  display: inline-block;
+}
+
 .post-join-btn,
-.create-post-btn,
-.post-edit-btn,
-.post-delete-btn,
-.my-posts-btn,
-.events-attending-btn,
-.all-posts-btn {
+.create-post-btn {
   border: 1px solid $main-green;
   &:hover {
     border: 1px solid $main-green;
@@ -421,16 +417,6 @@ a {
 
 .create-post-btn-container {
   padding-bottom: 40px;
-}
-
-.time-image {
-  height: 23px;
-  width: 23px;
-}
-
-.calender-image {
-  height: 30px;
-  width: 30px;
 }
 
 .post-author-detail-container {
@@ -469,6 +455,31 @@ a {
 }
 .a-table tr:first-child td {
   border-top: none;
+}
+
+/* ----------- icons ----------- */
+
+.email-image {
+  height: 30px;
+  width: 30px;
+  &:hover {
+    border-bottom: 1px solid $main-green;
+  }
+}
+
+.time-image {
+  height: 23px;
+  width: 23px;
+}
+
+.calender-image {
+  height: 30px;
+  width: 30px;
+}
+
+.setting-image {
+  height: 23px;
+  width: 23px;
 }
 /* ----------- media queries ----------- */
 

@@ -1,12 +1,22 @@
 <div class="col-md-12 all-posts-container">
   <div class="row">
-    <div class="col-md-5 col-md-offset-7 all-posts-btn-container">
-      <%= link_to 'Create New Post', new_post_path, class: 'btn btn-default create-post-btn' %>
-      <%= link_to 'All Posts', new_post_path, class: 'btn btn-default all-posts-btn' %>
-      <%= link_to 'My Posts', new_post_path, class: 'btn btn-default my-posts-btn' %>
-      <%= link_to 'Events Attending', new_post_path, class: 'btn btn-default events-attending-btn' %>
+    <div class="col-md-4">
+      <table class="table post-index-navbar">
+        <tr>
+          <td><%= link_to 'Create New Post', new_post_path %></td>
+        </tr>
+        <tr>
+          <td><a href="#" class="all-posts-btn">All Posts</a></td>
+        </tr>
+        <tr>
+          <td><a href="#" class="my-posts-btn">My Posts</a></td>
+        </tr>
+        <tr>
+          <td><a href="#" class="events-attending-btn">Events Attending</a></td>
+        </tr>
+      </table>
     </div>
-    <div class="col-md-12 posts-container">
+    <div class="col-md-12 all-posts-container">
       <table class="table all-posts-table">
         <tr>
           <td><%= sort_posts("created_at", "Created On")  %></td>
@@ -26,10 +36,7 @@
       <% end %>
       </table>
     </div>
-    <div class="col-md-12 pagination">
-      <%= paginate @posts %>
-    </div>
-    <div class="col-md-12">
+    <div class="col-md-12 my-posts-container">
       <table class="table my-posts-table">
         <tr>
           <td><span class="black">Created On</span></td>
@@ -49,7 +56,7 @@
       <% end %>
       </table>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 events-attending-container">
       <table class="table events-attending-table">
         <tr>
           <td><span class="black">Created On</span></td>
@@ -68,6 +75,9 @@
         </tr>
       <% end %>
       </table>
+    </div>
+    <div class="col-md-12 pagination">
+      <%= paginate @posts %>
     </div>
   </div>
 </div>
