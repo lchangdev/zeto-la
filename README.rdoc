@@ -7,7 +7,7 @@ simple yet effective.
 
 http://zeto-la.herokuapp.com
 
-https://cloud.githubusercontent.com/assets/6497212/3638087/7ec9ffbe-1035-11e4-918a-4814fc770354.png
+![screenshot 2014-07-20 13 44 09](https://cloud.githubusercontent.com/assets/6497212/3638099/5804ef3c-1036-11e4-93bd-a032fb57bef5.png)
 
 Getting Started
 * Please sign in with facebook.
