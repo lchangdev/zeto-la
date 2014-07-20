@@ -11,15 +11,19 @@
           </tr>
         </table>
       <% end %>
-      <% if @post.author != current_user %>
+    </div>
+    <div class="col-md-1 col-md-offset-8">
+      <table class="table">
         <% if @post.role == "Event" && !@post.users.include?(current_user) %>
-          <%= form_for [@post, @member] do |f| %>
-            <% f.submit 'Join', class: 'btn btn-default post-join-btn' %>
-          <% end %>
+          <tr>
+            <td><%= button_to 'Join', [@post, @member], class: 'post-join-btn' %></td>
+          </tr>
         <% elsif @post.role == "Event" && @post.users.include?(current_user) %>
-          <%= button_to 'Leave', [@post, @current_member], method: :delete, class: ' btn btn-default post-join-btn' %>
+          <tr>
+            <td><%= button_to 'Leave', [@post, @current_member], method: :delete, class: ' btn btn-default post-join-btn' %></td>
+          </tr>
         <% end %>
-      <% end %>
+      </table>
     </div>
   </div>
   <div class="col-md-4 col-md-offset-1">
