@@ -7,6 +7,8 @@ simple yet effective.
 
 http://zeto-la.herokuapp.com
 
+https://cloud.githubusercontent.com/assets/6497212/3638087/7ec9ffbe-1035-11e4-918a-4814fc770354.png
+
 Getting Started
 * Please sign in with facebook.
 * Once logged in an 'enter' link will appear prompting for an address
@@ -25,7 +27,8 @@ Current Features
 * User able to search for launchers by address.
 * Users are shown number of launchers within 20 miles of search parameters.
 * User able to open popups programmatically.
+* Users are able to post job leads and events.
 
 Built using Ruby, HTML, CSS, JavaScript, jQuery, AJAX with Rails
 
-[![Build Status](https://travis-ci.org/<lchangdev>/<zeto-la>.svg?branch=master)](https://travis-ci.org/<lchangdev>/<zeto-la>) [![Code Climate](https://codeclimate.com/github/<lchangdev>/<zeto-la>.png)](https://codeclimate.com/github/<lchangdev>/<zeto-la>) [![Coverage Status](https://coveralls.io/repos/<lchangdev>/<zeto-la>/badge.png)](https://coveralls.io/r/<lchangdev>/<zeto-la>)
+
