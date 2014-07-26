@@ -7,8 +7,6 @@ simple yet effective.
 
 http://zeto-la.herokuapp.com
 
-![ScreenShot](https://cloud.githubusercontent.com/assets/6497212/3638139/926a2a60-1037-11e4-8f82-a200ed65499c.png)
-
 Getting Started
 * Please sign in with facebook.
 * Once logged in an 'enter' link will appear prompting for an address
