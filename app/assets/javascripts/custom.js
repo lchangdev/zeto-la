@@ -65,6 +65,8 @@ $(document).ready(function(){
   $('.experienceengineer').css("color", "#F89406"); // orange
   $('.launchstaff').css("color", "#F89406"); // orange
   $('.hiringpartner').css("color"," #F1A9A0"); // pink
+  $('.fall2013').css("color"," #");
+  $('.summer2013').css("color"," #");
   $('.winter2013').css("color", "#6163c6"); // blue
   $('.spring2014').css("color", "#e871ae"); // pink
   $('.summer2014').css("color", "#848484"); // grey
