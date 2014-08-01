@@ -5,9 +5,9 @@ class ContactRequestMailer < ActionMailer::Base
     @sender = sender
     @recipient = recipient
     if @recipient.user.secondary_email.present?
-      mail(to: @recipient.user.secondary_email, subject: "Request to connect with #{@recipient.user.name}.")
+      mail(to: @recipient.user.secondary_email, subject: "Launch Academy's #{@sender.name} has requested to connect with you.")
     else
-      mail(to: @recipient.user.email, subject: "Request to connect with #{@recipient.user.name}.")
+      mail(to: @recipient.user.email, subject: "Launch Academy's #{@sender.name} has requested to connect with you.")
     end
   end
 
